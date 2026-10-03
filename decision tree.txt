@@ -1,0 +1,12 @@
+import pandas as pd
+from sklearn import tree
+from sklearn.preprocessing import LabelEncoder
+
+df = pd.read_csv("C:\\Users\\Administrator\\Downloads\\PlayTennis.csv")
+print(df)
+df = df.apply(LabelEncoder().fit_transform)
+
+X, y = df.drop('Play Tennis', axis=1), df['Play Tennis']
+clf = tree.DecisionTreeClassifier(criterion='entropy').fit(X, y)
+tree.plot_tree(clf)
+clf.predict(X) == y

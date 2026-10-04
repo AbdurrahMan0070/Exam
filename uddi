@@ -1,0 +1,84 @@
+//===========newjsp.jsp============
+<%-- 
+    Document   : newjsp
+    Created on : 4 Oct, 2026, 4:17:14 PM
+    Author     : User
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	Exam.CricketPlayers_Service service = new Exam.CricketPlayers_Service();
+	Exam.CricketPlayers port = service.getCricketPlayersPort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String teamName = " ";
+	// TODO process result here
+	java.util.List<java.lang.String> result = port.displayPlayers(teamName);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    </body>
+</html>
+
+//CricketPlayers.java
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tycs;
+
+import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+
+/**
+ *
+ * @author User
+ */
+@WebService(serviceName = "CricketPlayers")
+public class CricketPlayers {
+
+    /**
+     * This is a sample web service operation
+     */
+    @WebMethod(operationName = "hello")
+    public String hello(@WebParam(name = "name") String txt) {
+        return "Hello " + txt + " !";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "DisplayPlayers")
+    public String[] DisplayPlayers(@WebParam(name = "TeamName") String TeamName)
+    {
+        if (TeamName.equalsIgnoreCase("India"))
+        {
+            return new String[]{"Alice","Bob","Charlie"};
+            
+        }
+        else if (TeamName.equalsIgnoreCase("Australia"))
+        {
+            return new String[]{"Bilal","Gooa","Sua"};
+            
+        }
+        else{
+            return new String[]{"Abd","Amr","Sjjs"};
+        }
+        //TODO write your implementation code here:
+    }
+}

@@ -1,0 +1,94 @@
+Practical 5: RESTful Web Services from Database (emp table)  [CCWS PRAC 3]
+AIM: Create RESTful web services from a MySQL database table using NetBeans.
+
+
+==================== PART A: DATABASE ====================
+
+Step 1: Open the MySQL command line (enter password: mysql).
+
+Step 2: Create the database (the doc says "city" but the commands use tyemp, so create tyemp)
+        and run the commands below.
+
+CREATE DATABASE tyemp;
+use tyemp;
+create table emp (e_id int Primary Key, e_name varchar(20), e_des varchar(20), e_sal int);
+show tables;
+describe emp;
+
+Output shown in the doc:
+mysql> use tyemp;
+Database changed
+mysql> create table emp (e_id int Primary Key, e_name varchar(20), e_des varchar(20), e_sal int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_tyemp  |
++------------------+
+| emp              |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> describe emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| e_id   | int(11)     | NO   | PRI | NULL    |       |
+| e_name | varchar(20) | YES  |     | NULL    |       |
+| e_des  | varchar(20) | YES  |     | NULL    |       |
+| e_sal  | int(11)     | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+==================== PART B: NETBEANS PROJECT AND CONNECTION ====================
+
+Step 3: Open NetBeans and create a new web project (File > New Project > Java Web > Web Application).
+
+Step 4: Create the database connection
+  - Open Window > Services > Databases > Drivers.
+  - Select MySQL (Connector/J driver), right-click > Connect Using.
+  - In the New Connection Wizard enter:
+        Host     : localhost       Port: 3306
+        Database : tyemp
+        User     : root
+        Password : mysql  (tick "Remember password")
+  - Click Test Connection.
+  - JDBC URL: jdbc:mysql://localhost:3306/tyemp?zeroDateTimeBehavior=convertToNull
+
+Step 5: When the connection is successful, click Next > Finish.
+        The tyemp connection appears under Databases with the default schema.
+
+==================== PART C: GENERATE REST SERVICES AND PAGES ====================
+
+Step 6: Right-click your project > New > RESTful Web Services from Database.
+
+Step 7: In the Data Source dropdown choose "New Data Source...".
+
+Step 8: Give any name in the JNDI Name field, select the database connection tyemp, click OK.
+
+Step 9: Select the emp table (Available Tables) > Add > Next > Finish
+        (the entity class generated is emp).
+
+Step 10: Enter the package name ccpack and click Finish.
+
+Step 11: Right-click the project > New > JSF Pages from Entity Classes.
+         Select the entity class tycs.emp > Finish.
+
+Step 12: Deploy and run the project. The generated JSF pages open in the browser.
+         Use the "Create" page to add records (e_id, e_name, e_des, e_sal).
+
+Step 13: Check the new entries in MySQL:
+
+select * from emp;
+
+Output shown in the doc:
++------+----------+---------+---------+
+| e_id | e_name   | e_des   | e_sal   |
++------+----------+---------+---------+
+|   11 | jennifer | intern  |   35000 |
+|   77 | khadija  | HR      | 7000000 |
++------+----------+---------+---------+
+2 rows in set (0.00 sec)
+
+NOTE: Steps 6 to 11 use NetBeans wizards and generate the code automatically.
+There is no hand-written code in this practical.

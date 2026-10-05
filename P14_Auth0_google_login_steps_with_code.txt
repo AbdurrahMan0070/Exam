@@ -1,0 +1,185 @@
+Practical 14: Google login using Auth0 (NetBeans, JSP + Servlets)
+Project: MyWebApp    Callback: http://localhost:8080/MyWebApp/callback
+Allowed Logout URL: http://localhost:8080/MyWebApp/
+
+
+==================== PART A: AUTH0 SETUP ====================
+
+Step 1: Create an Auth0 account.
+  - Go to the Auth0 Dashboard (https://auth0.com/).
+  - Create an account and create a Tenant if Auth0 asks you to.
+
+Step 2: Create an Auth0 application.
+  - Applications > Applications > Create Application.
+  - Name: My App
+  - Application Type: Regular Web Application
+  - Click Create.
+  - You will see Domain, Client ID and Client Secret. Keep these values.
+    Do not put the Client Secret inside a JSP page or JavaScript.
+
+Step 3: Configure Google login.
+  - Authentication > Social > Google. Enable the Google connection.
+  - Click "Try Connection", enter Google account details.
+
+Step 4: Open your NetBeans project (MyWebApp).
+
+Step 5: Configure the Auth0 callback URL.
+  - Go back to your Auth0 application > Settings.
+  - Allowed Callback URLs:  http://localhost:8080/MyWebApp/callback
+  - Allowed Logout URLs:    http://localhost:8080/MyWebApp/
+  - The callback URL is important: Auth0 requires the redirect URI used by your application to be
+    registered in the application's settings.
+  - Click Save Changes.
+
+==================== PART B: CODE ====================
+
+Step 6: Create login.jsp (Web Pages > New > JSP, name: login).
+
+---------- login.jsp ----------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h2>My Application</h2>
+<a href="${pageContext.request.contextPath}/login">
+    Login with Google
+</a>
+</body>
+</html>
+
+Step 7: Create LoginServlet (Source Packages > New > Servlet).
+  - Name: LoginServlet, Package: com.myapp, map it to /login.
+  - Replace YOUR DOMAIN VALUE, YOUR CLIENT VALUE and YOUR CALLBACK URL with the values from Auth0
+    (callback: http://localhost:8080/MyWebApp/callback).
+
+---------- LoginServlet.java (package com.myapp, mapped to /login) ----------
+package com.myapp;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request,
+                          HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String domain = "YOUR DOMAIN VALUE ";
+        String clientId = "YOUR CLIENT VALUE";
+        String callback =
+                "YOUR CALLBACK URL";
+
+        String url =
+                "https://" + domain +
+                "/authorize" +
+                "?response_type=code" +
+                "&client_id=" + clientId +
+                "&redirect_uri=" +
+                URLEncoder.encode(callback, "UTF-8") +
+                "&scope=" +
+                URLEncoder.encode(
+                    "openid profile email", "UTF-8") + "&connection=google-oauth2";
+
+        response.sendRedirect(url);
+    }
+}
+
+Step 8: Make it open Google directly (already added in the code above, go to the next step).
+  To go directly to Google instead of the Auth0 login page, add &connection=google-oauth2:
+  this part:
+      "&scope=" +
+      URLEncoder.encode("openid profile email", "UTF-8");
+  becomes:
+      "&scope=" +
+      URLEncoder.encode("openid profile email", "UTF-8") +
+      "&connection=google-oauth2";
+
+Step 9: Create CallbackServlet (another servlet, URL /callback).
+
+---------- CallbackServlet.java (package com.myapp, mapped to /callback) ----------
+package com.myapp;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/callback")
+public class CallbackServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request,
+                          HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String code = request.getParameter("code");
+
+        if (code == null) {
+            response.sendError(
+                HttpServletResponse.SC_UNAUTHORIZED,
+                "Login failed"
+            );
+            return;
+        }
+
+        /*
+         * Here we will exchange the authorization code
+         * with Auth0 for the user's tokens.
+         */
+
+        HttpSession session = request.getSession();
+        session.setAttribute("loggedIn", true);
+
+        response.sendRedirect(
+            request.getContextPath() + "/home.jsp"
+        );
+    }
+}
+
+Step 10: Create home.jsp.
+
+---------- home.jsp ----------
+<%
+    Boolean loggedIn =
+        (Boolean) session.getAttribute("loggedIn");
+
+    if (!Boolean.TRUE.equals(loggedIn)) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h2>Welcome!</h2>
+<p>You are logged in.</p>
+<a href="logout">Logout</a>
+</body>
+</html>
+
+==================== PART C: TEST ====================
+
+Step 11: Run your NetBeans project and open:
+        http://localhost:8080/MyWebApp/login.jsp
+  - Click "Login with Google", sign in with your Google account and accept the request.
+  - You are redirected to home.jsp, which shows "Welcome! You are logged in."
+  - Practical successful.
+
+NOTE: The CallbackServlet only checks that a code was returned and sets a session flag. The
+comment in the code says the token exchange with Auth0 is still to be added. The Logout link on
+home.jsp points to "logout", which has no servlet in this practical.

@@ -1,3 +1,4 @@
+--
 dict_gn = {
 'Arad': {'Zerind': 75, 'Timisoara': 118, 'Sibiu': 140},
 'Zerind': {'Oradea': 71, 'Arad': 75},
@@ -21,6 +22,7 @@ dict_gn = {
 'Neamt': {'Iasi': 87}
 }
 
+--
 start, goal = 'Arad', 'Bucharest'
 
 stack, path = [start], []
@@ -31,5 +33,6 @@ while stack:
     for n in reversed(list(dict_gn[c])):
         if n not in path and n not in stack: stack.append(n)
 
+--
 print("DFS Traversal From", start, "to", goal, "is:")
 print(" ".join(path) if path[-1] == goal else "Goal city could not be reached.")

@@ -1,0 +1,178 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="4.4 Class Diagram" id="page1">
+    <mxGraphModel dx="1211" dy="449" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="User" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="User" vertex="1">
+          <mxGeometry height="136" width="195" x="45" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="User" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ user_id : int&lt;br&gt;+ name : string&lt;br&gt;+ email : string&lt;br&gt;+ password_hash : string&lt;br&gt;+ role : Role (OWNER/STAFF)&lt;br&gt;+ created_at : datetime" vertex="1">
+          <mxGeometry height="110" width="195" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Category" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Category" vertex="1">
+          <mxGeometry height="102" width="195" x="335" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="Category" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ category_id : int&lt;br&gt;+ name : string&lt;br&gt;+ description : string&lt;br&gt;+ is_active : bool" vertex="1">
+          <mxGeometry height="76" width="195" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Product" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Product" vertex="1">
+          <mxGeometry height="204" width="220" x="625" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="Product" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ product_id : int&lt;br&gt;+ category_id : int&lt;br&gt;+ name : string&lt;br&gt;+ purchase_price : decimal&lt;br&gt;+ selling_price : decimal&lt;br&gt;+ stock : int&lt;br&gt;+ expiry_date : datetime&lt;br&gt;+ image_url : string&lt;br&gt;+ created_at : datetime&lt;br&gt;+ updated_at : datetime" vertex="1">
+          <mxGeometry height="178" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Daily_Report" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Daily_Report" vertex="1">
+          <mxGeometry height="136" width="210" x="915" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="Daily_Report" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ report_id : int&lt;br&gt;+ report_date : date&lt;br&gt;+ total_revenue : decimal&lt;br&gt;+ total_profit : decimal&lt;br&gt;+ total_orders : int&lt;br&gt;+ generated_at : datetime" vertex="1">
+          <mxGeometry height="110" width="210" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Settings" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Settings" vertex="1">
+          <mxGeometry height="153" width="195" x="45" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="Settings" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ settings_id : int&lt;br&gt;+ user_id : int&lt;br&gt;+ store_name : string&lt;br&gt;+ store_address : string&lt;br&gt;+ phone : string&lt;br&gt;+ whatsapp_number : string&lt;br&gt;+ receipt_footer : string" vertex="1">
+          <mxGeometry height="127" width="195" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Sale" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Sale" vertex="1">
+          <mxGeometry height="170" width="210" x="335" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="Sale" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ sale_id : int&lt;br&gt;+ user_id : int&lt;br&gt;+ total_amount : decimal&lt;br&gt;+ payment_method : string&lt;br&gt;+ customer_phone : string&lt;br&gt;+ whatsapp_sent : bool&lt;br&gt;+ pdf_url : string&lt;br&gt;+ created_at : datetime" vertex="1">
+          <mxGeometry height="144" width="210" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SaleItem" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="SaleItem" vertex="1">
+          <mxGeometry height="136" width="220" x="625" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="SaleItem" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ item_id : int&lt;br&gt;+ sale_id : int&lt;br&gt;+ product_id : int&lt;br&gt;+ quantity : int&lt;br&gt;+ unit_price : decimal&lt;br&gt;+ subtotal : decimal" vertex="1">
+          <mxGeometry height="110" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Inventory_Log" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Inventory_Log" vertex="1">
+          <mxGeometry height="119" width="210" x="915" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="Inventory_Log" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ log_id : int&lt;br&gt;+ product_id : int&lt;br&gt;+ change_qty : int&lt;br&gt;+ reason : string&lt;br&gt;+ recorded_at : datetime" vertex="1">
+          <mxGeometry height="93" width="210" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Notification" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Notification" vertex="1">
+          <mxGeometry height="153" width="195" x="45" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" parent="Notification" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ notification_id : int&lt;br&gt;+ user_id : int&lt;br&gt;+ title : string&lt;br&gt;+ message : string&lt;br&gt;+ type : string&lt;br&gt;+ is_read : bool&lt;br&gt;+ created_at : datetime" vertex="1">
+          <mxGeometry height="127" width="195" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Payment_Transaction" parent="1" style="swimlane;fontStyle=1;startSize=26;fillColor=#fff2cc;strokeColor=#4a4a4a;swimlaneFillColor=#fffdf5;html=1;whiteSpace=wrap;fontSize=12;" value="Payment_Transaction" vertex="1">
+          <mxGeometry height="136" width="210" x="335" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="Payment_Transaction" style="text;html=1;align=left;verticalAlign=top;spacingLeft=6;fontSize=10;whiteSpace=wrap;" value="+ transaction_id : int&lt;br&gt;+ sale_id : int&lt;br&gt;+ payment_method : string&lt;br&gt;+ amount : decimal&lt;br&gt;+ status : string&lt;br&gt;+ transaction_time : datetime" vertex="1">
+          <mxGeometry height="110" width="210" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" edge="1" parent="1" source="User" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Sale" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c14" connectable="0" parent="c13" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c15" connectable="0" parent="c13" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.8303" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c16" edge="1" parent="1" source="User" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Settings" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" connectable="0" parent="c16" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c18" connectable="0" parent="c16" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c19" edge="1" parent="1" source="Category" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Product" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" connectable="0" parent="c19" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c21" connectable="0" parent="c19" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c22" edge="1" parent="1" source="Product" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="SaleItem" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" connectable="0" parent="c22" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c24" connectable="0" parent="c22" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c25" edge="1" parent="1" source="Product" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Inventory_Log" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" connectable="0" parent="c25" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c27" connectable="0" parent="c25" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c28" edge="1" parent="1" source="Sale" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="SaleItem" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c29" connectable="0" parent="c28" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c30" connectable="0" parent="c28" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c31" edge="1" parent="1" source="Sale" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Payment_Transaction" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" connectable="0" parent="c31" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c33" connectable="0" parent="c31" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c34" edge="1" parent="1" source="Settings" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeColor=#2b3a4a;" target="Notification" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c35" connectable="0" parent="c34" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c36" connectable="0" parent="c34" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#7a2a00;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

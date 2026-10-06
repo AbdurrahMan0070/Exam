@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="4.12 Deployment Diagram" id="page1">
+    <mxGraphModel dx="1211" dy="449" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c3" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=10;align=center;" value="&lt;b style=&quot;font-size:20px&quot;&gt;Bakery Shop – Deployment Diagram&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="600" x="250" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=10;align=center;fontSize=12;fontColor=#444444;" value="Modern Bakery Management &amp;amp; POS System" vertex="1">
+          <mxGeometry height="20" width="600" x="250" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="dev" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;Staff / Owner&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(Device)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• Web Browser&lt;br&gt;• POS Interface (React)&lt;br&gt;• Owner Admin Portal&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="210" x="30" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="web" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;Web Server&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(Vite / Nginx)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• React 19 Frontend&lt;br&gt;• Tailwind CSS v4 UI&lt;br&gt;• Static Asset Host&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="210" x="300" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="app" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;Application Server&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(NestJS / Node.js)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• Bakery REST API&lt;br&gt;• Business Logic Layer&lt;br&gt;• Prisma ORM Client&lt;br&gt;• Auth &amp; Role Guard&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="220" x="570" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;Database Server&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(PostgreSQL)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• PostgreSQL Database&lt;br&gt;• Prisma Schema Layer&lt;br&gt;• Data Access Layer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="210" x="850" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="wa" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;WhatsApp / SMS&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(External Service)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• WhatsApp API&lt;br&gt;• E-Receipt Delivery&lt;br&gt;• Mobile Notification&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="230" x="270" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="pdf" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=14;fillColor=#ffffff;strokeColor=#2b3a4a;verticalAlign=top;spacingTop=6;fontSize=11;" value="&lt;b style=&quot;font-size:14px&quot;&gt;Receipt &amp; PDF Service&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot;&gt;(External / Local)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Components&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;padding-left:14px&quot;&gt;• PDFKit 80mm Generator&lt;br&gt;• Thermal Printer Driver&lt;br&gt;• Receipt Dispatch&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="250" x="600" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" source="dev" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;edgeStyle=none;" target="web" value="HTTPS&lt;br&gt;(HTTP/HTTPS)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" edge="1" parent="1" source="web" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;edgeStyle=none;" target="app" value="HTTP&lt;br&gt;(REST API)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" edge="1" parent="1" source="app" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;edgeStyle=none;" target="db" value="TCP/IP&lt;br&gt;(Prisma ORM)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="HTTP/HTTPS&lt;br&gt;(for external services)">
+          <mxGeometry relative="1" x="0.0565" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="407" y="221" />
+            </Array>
+            <mxPoint x="592" y="221" as="sourcePoint" />
+            <mxPoint x="407" y="443" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c9" edge="1" parent="1" source="app" style="html=1;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontSize=10;edgeStyle=orthogonalEdgeStyle;" target="pdf" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

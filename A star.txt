@@ -1,5 +1,7 @@
+--
 import heapq
 
+--
 dict_gn = {
 'Arad': {'Zerind': 75, 'Timisoara': 118, 'Sibiu': 140},
 'Zerind': {'Oradea': 71, 'Arad': 75},
@@ -23,12 +25,14 @@ dict_gn = {
 'Neamt': {'Iasi': 87}
 }
 
+--
 h = {'Arad': 366, 'Bucharest': 0, 'Craiova': 160, 'Drobeta': 242, 'Eforie': 161,
      'Fagaras': 176, 'Giurgiu': 77, 'Hirsova': 151, 'Iasi': 226, 'Lugoj': 244,
      'Mehadia': 241, 'Neamt': 234, 'Oradea': 380, 'Pitesti': 100,
      'Rimnicu Vilcea': 193, 'Sibiu': 253, 'Timisoara': 329, 'Urziceni': 80,
      'Vaslui': 199, 'Zerind': 374}
 
+--
 start, goal = 'Arad', 'Bucharest'
 pq, seen = [(h[start], 0, start, [start])], set()
 while pq:
@@ -38,6 +42,7 @@ while pq:
         seen.add(c)
         for n, d in dict_gn[c].items(): heapq.heappush(pq, (g+d+h[n], g+d, n, p+[n]))
 
+--
 print("The A* path is:")
 print(" -> ".join(p))
 print(f"Total distance: {g} km")

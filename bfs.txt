@@ -1,3 +1,4 @@
+--
 dict_gn = {
 'Arad': {'Zerind': 75, 'Timisoara': 118, 'Sibiu': 140},
 'Zerind': {'Oradea': 71, 'Arad': 75},
@@ -21,6 +22,7 @@ dict_gn = {
 'Neamt': {'Iasi': 87}
 }
 
+--
 start, goal = 'Arad', 'Bucharest'
 
 q, path = [start], [start]
@@ -30,5 +32,6 @@ while q and path[-1] != goal:
         if n == goal: break
         q.append(n)
 
+--
 print("BFS Traversal From", start, "to", goal, "is:")
 print(" ".join(path) if path[-1] == goal else "Goal city could not be reached.")

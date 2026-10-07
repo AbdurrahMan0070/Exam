@@ -1,0 +1,249 @@
+Practical no: 06
+
+Aim: Set up DVWA using XAMPP and perform the practical shown in the document.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Download XAMPP.
+        - Open a browser and search for "XAMPP download".
+        - Download XAMPP for Windows.
+        - Click Yes and continue the installation.
+
+Step 2: Install XAMPP.
+        - Click Next through the setup.
+        - Keep the required components selected.
+        - Choose the installation folder, shown in the document as:
+          C:\xampp
+        - Select the language.
+        - Click Next and install XAMPP.
+        - Click Finish after installation.
+
+Step 3: Start Apache and MySQL.
+        - Open the XAMPP Control Panel.
+        - Click Start for Apache.
+        - Click Start for MySQL.
+        - Both services should be running.
+
+Step 4: Download DVWA.
+        - Download DVWA from its GitHub repository.
+        - Extract the downloaded ZIP file.
+
+Step 5: Rename the DVWA folder.
+        - Open the extracted DVWA-master folder.
+        - If another DVWA-master folder is present, rename it to:
+          dvwa
+
+Step 6: Copy DVWA to XAMPP.
+        - Copy the renamed dvwa folder.
+        - Go to the XAMPP installation location.
+        - Open the htdocs folder.
+        - Paste the dvwa folder inside htdocs.
+
+Step 7: Open DVWA in the browser.
+        - Open the browser and type:
+          localhost/DVWA
+
+Step 8: Rename the configuration file.
+        - Go to:
+          htdocs\dvwa\config
+        - Rename:
+          config.inc.php.dist
+          to:
+          config.inc.php
+
+Step 9: Configure the database connection.
+        - Open config.inc.php in Notepad.
+        - Use the database username and password shown/copied in the document.
+        - The server is:
+          127.0.0.1
+        - The port is:
+          3306
+
+Step 10: Create the DVWA database.
+        - Open XAMPP Control Panel.
+        - Open MySQL Admin.
+        - Click New.
+        - Enter database name:
+          dvwa
+
+Step 11: Add the user account.
+        - Go to Privileges / User accounts.
+        - Enter the copied user account and password.
+        - Grant all privileges on database dvwa.
+        - Click Go.
+        - The new user will be added.
+
+Step 12: Open the DVWA login/setup page.
+        - Browse:
+          localhost/dvwa/login.php
+        - If required, use the Create / Reset Database option.
+
+Step 13: Log in to DVWA.
+        - Go back to the login page.
+        - Enter:
+          Username: admin
+          Password: password
+
+Step 14: Fix PHP settings if red warnings are shown.
+        - In XAMPP, click Config for Apache.
+        - Open php.ini.
+        - Search for:
+          allow_url_include
+        - Set it to:
+          allow_url_include=On
+        - Search for the GD extension.
+        - Remove the semicolon at the beginning of the GD extension line.
+        - Save php.ini.
+        - Stop and start Apache again.
+
+Step 15: Set DVWA security level.
+        - Open DVWA Security.
+        - The document shows the level initially as Impossible.
+        - Select:
+          Low
+        - Click Submit.
+
+Step 16: Perform the shown XSS practical.
+        - Open:
+          XSS (Reflected)
+        - Enter the XSS test input shown in the document.
+        - Click Submit.
+        - OUTPUT: The page displays the XSS result/alert shown in the
+          practical screenshot.
+        --> Take a screenshot (Output).
+
+Step 17: If MySQL port 3306 is busy:
+        - Open Command Prompt as Administrator.
+        - Type:
+          netstat -ano | findstr :3306
+        - Find the process using port 3306.
+        - Type:
+          sc query type= service | findstr /I mysql
+        - Stop the MySQL service if required:
+          sc stop MySQL
+        - The document then shows:
+          sc config MySQL start = disabled
+        - Check port 3306 again:
+          netstat -ano | findstr :3306
+        - Make sure the port is no longer occupied before restarting
+          the required MySQL service.
+
+Step 18: Paste the screenshots in the practical document under the
+        relevant headings and write one line of observation below each.
+
+
+======================== NOTES (THEORY) ======================
+
+XAMPP
+- XAMPP is a local server package used to run web applications on a
+  computer.
+- It provides components such as Apache, MySQL/MariaDB and PHP.
+
+Apache
+- Apache is the web server used to serve the DVWA application locally.
+
+MySQL
+- MySQL is the database server used by DVWA.
+- In the document, the MySQL port is 3306.
+
+DVWA
+- DVWA = Damn Vulnerable Web Application.
+- It is a deliberately vulnerable web application used for security
+  testing and learning.
+
+htdocs
+- htdocs is the folder where web application files are placed in XAMPP.
+- DVWA is copied into this folder.
+
+php.ini
+- php.ini is the PHP configuration file.
+- The document changes PHP settings here to make required DVWA features
+  available.
+
+allow_url_include
+- This PHP setting is enabled in the document by setting:
+  allow_url_include=On
+
+GD Extension
+- The document enables the GD extension by removing the semicolon from
+  its extension line.
+
+DVWA Security Level
+- DVWA provides different security levels for its vulnerabilities.
+- The document changes the level from Impossible to Low.
+
+XSS (Reflected)
+- XSS = Cross-Site Scripting.
+- Reflected XSS occurs when user input is returned by the web page and
+  is interpreted by the browser as part of the page.
+
+
+Memory trick:
+XAMPP = local server
+Apache = web server
+MySQL = database
+DVWA = vulnerable practice application
+php.ini = PHP settings
+htdocs = web files
+XSS = Cross-Site Scripting
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is XAMPP?
+-> XAMPP is a local server package used to run web applications.
+
+2. What is DVWA?
+-> DVWA is a deliberately vulnerable web application used for security
+   testing and learning.
+
+3. What is the full form of DVWA?
+-> Damn Vulnerable Web Application.
+
+4. What is the purpose of Apache in XAMPP?
+-> Apache works as the web server for the local application.
+
+5. What is the purpose of MySQL in DVWA?
+-> MySQL stores and manages the database used by DVWA.
+
+6. What is htdocs?
+-> It is the XAMPP folder where web application files are placed.
+
+7. What is the MySQL port used in this practical?
+-> Port 3306.
+
+8. What is php.ini?
+-> It is the PHP configuration file used to change PHP settings.
+
+9. Which PHP setting is changed in this practical?
+-> allow_url_include is set to On.
+
+10. What is XSS?
+-> XSS stands for Cross-Site Scripting.
+
+11. What is Reflected XSS?
+-> It occurs when user input is reflected back by the web page and
+    interpreted by the browser.
+
+12. Why is DVWA security changed to Low?
+-> To use the vulnerable functionality for the practical.
+
+13. What username and password are shown for DVWA login?
+-> Username: admin
+   Password: password
+
+14. What should be done if MySQL port 3306 is busy?
+-> Check the process using port 3306 with netstat and stop the MySQL
+   service if required.
+
+15. Which command checks whether port 3306 is in use?
+-> netstat -ano | findstr :3306
+
+16. Which command checks for the MySQL service?
+-> sc query type= service | findstr /I mysql
+
+17. Which command is shown to stop the MySQL service?
+-> sc stop MySQL
+
+18. Why are Apache and MySQL started in XAMPP?
+-> Apache runs the web application and MySQL provides the database.

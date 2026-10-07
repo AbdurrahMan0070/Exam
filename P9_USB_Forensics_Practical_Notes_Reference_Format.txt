@@ -1,0 +1,146 @@
+Practical no: 09
+
+Aim: To find last connected USB on your system (USB Forensics)
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Download USBDeview.
+        - Open a browser.
+        - Go to:
+          https://www.nirsoft.net/utils_devices_view.html
+        - Download USBDeview.
+
+Step 2: Open the downloaded ZIP file.
+        - Double click the ZIP file.
+        - Locate USBDeview.exe.
+
+Step 3: Run USBDeview.exe.
+        - Open the application.
+        - USBDeview displays USB devices currently and previously
+          connected to the computer.
+
+Step 4: View the USB device history.
+        - Check the list of USB devices displayed by USBDeview.
+        - Use the connection/time information shown in the list to
+          identify the most recently connected USB device.
+
+Step 5: View detailed information about a USB device.
+        - Select the required USB device.
+        - Open its Properties/details.
+        - Observe information such as Device Name, Device Type,
+          Connected, Disabled, Drive Letter, Serial Number,
+          Registry Time, VendorID, ProductID, USB Class, USB Subclass,
+          Computer Name, Service Name and Driver Version.
+
+Step 6: Identify the last connected USB.
+        - Compare the available time/history information of the USB
+          devices.
+        - Select the device with the most recent connection information.
+        - Record its device details.
+
+Step 7: Take screenshots of the USBDeview device list and the detailed
+        USB device properties.
+
+
+======================== NOTES (THEORY) ======================
+
+USB Forensics
+- USB forensics is the process of examining USB device information
+  and connection history on a computer.
+- It can help identify USB devices currently or previously connected.
+
+USBDeview
+- USBDeview is a free and lightweight Windows utility by NirSoft.
+- It lists USB devices currently and previously connected to a computer.
+- It displays detailed information about USB devices.
+
+USB Device History
+- USBDeview provides information about USB devices connected to the
+  computer.
+- The history can be examined to identify recently connected devices.
+
+Device Name
+- Shows the name or identifier of the USB device.
+
+Device Type
+- Shows the type/category of the USB device.
+
+Connected
+- Shows whether the device is currently connected.
+
+Serial Number
+- Shows the serial number of the USB device when available.
+
+VendorID
+- Identifies the vendor/manufacturer of the USB device.
+
+ProductID
+- Identifies the particular USB product/device.
+
+Registry Time
+- Shows recorded registry-related time information for the device.
+
+Properties
+- The Properties/details window provides additional information about
+  the selected USB device.
+
+Memory trick:
+USBDeview = USB history
+Connected = current status
+Serial Number = device identification
+VendorID = manufacturer
+ProductID = product
+Properties = detailed information
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is USB forensics?
+-> It is the examination of USB device information and connection
+   history on a computer.
+
+2. What is USBDeview?
+-> USBDeview is a Windows utility by NirSoft that lists currently and
+   previously connected USB devices.
+
+3. What is the aim of this practical?
+-> To find the last connected USB device on the system.
+
+4. What information does USBDeview provide?
+-> It provides USB device history and detailed device information.
+
+5. What is USB device history?
+-> It is information about USB devices currently or previously
+   connected to the computer.
+
+6. How can you find the last connected USB?
+-> Check the USB device history and compare the available connection/time
+   information to identify the most recent device.
+
+7. What is the use of Device Name?
+-> It identifies the USB device.
+
+8. What is the use of Serial Number?
+-> It can help identify a particular USB device.
+
+9. What is VendorID?
+-> It identifies the vendor/manufacturer of the USB device.
+
+10. What is ProductID?
+-> It identifies the particular USB product/device.
+
+11. What does Connected indicate?
+-> It indicates whether the USB device is currently connected.
+
+12. What is the use of the Properties window?
+-> It displays detailed information about the selected USB device.
+
+13. Who developed USBDeview?
+-> NirSoft.
+
+14. Is USBDeview a command-line tool?
+-> No. It is a Windows graphical utility.
+
+15. What should be observed in this practical?
+-> The USB device list, connection/history information and detailed
+   properties of the selected device.

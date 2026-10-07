@@ -1,0 +1,159 @@
+Practical no: 08
+
+Aim: Session Impersonation with Firefox and Tamper Data.
+
+- Install and configure the Tamper Data add-on in Firefox.
+- Intercept and modify HTTP requests to demonstrate session impersonation
+  in the provided vulnerable test environment.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Download and install Mozilla Firefox.
+        - Follow the on-screen installation instructions.
+
+Step 2: Open Firefox and click the Extensions (Puzzle) icon.
+
+Step 3: Search for:
+        Tamper Data
+        in the Firefox Add-ons store.
+
+Step 4: Click Add to Firefox and install the Tamper Data extension.
+
+Step 5: Check:
+        Allow Extension To Run In Private Windows
+
+Step 6: Check:
+        Run Extension in Toolbar
+
+Step 7: Open the vulnerable test website in Firefox:
+        http://testaspnet.vulnweb.com/login.aspx
+
+Step 8: Click the Tamper Data (Cloud) icon on the Firefox toolbar.
+        - A new window will open.
+        - Scroll to the bottom.
+        - Click Start Tamper.
+
+Step 9: Enter the login details shown in the practical:
+        Username: admin
+        Password: any password
+
+Step 10: Click Network Scanner.
+         - A window will open.
+         - Scroll down.
+         - Click OK.
+
+Step 11: After clicking OK, a new window will open.
+         - Scroll down.
+         - Find Upgrade Insecure Requests.
+         - Edit its value and enter:
+           5
+         - Click OK.
+
+Step 12: Go to Network Scanner again.
+         - A window will open.
+         - Click OK.
+
+Step 13: In the new window, click Upgrade Insecure Requests.
+         - Edit the value and make it:
+           5
+         - Repeat this step 4 to 5 times as shown in the practical.
+
+Step 14: Observe the result.
+         - Multiple popups/windows appear.
+         - Check whether the modified request works as another user's
+           session, as described in the practical.
+
+Step 15: Take screenshots of the Tamper Data request window and the
+         final result for the practical document.
+
+
+======================== NOTES (THEORY) ======================
+
+Tamper Data
+- Tamper Data is a browser extension used to intercept, view and modify
+  HTTP/HTTPS requests.
+- It allows web traffic to be inspected directly from the browser.
+
+Session Impersonation
+- Session impersonation means temporarily assuming another user's
+  identity/session.
+- The practical demonstrates this using a vulnerable test website.
+
+HTTP Request
+- An HTTP request is a message sent by a browser to a web server.
+- It contains information such as the requested URL, method and headers.
+
+Network Scanner
+- In the practical, Network Scanner is used as part of the Tamper Data
+  workflow.
+- The document shows opening it and confirming the request window.
+
+Upgrade Insecure Requests
+- It appears as a request/header field in the Tamper Data window.
+- In the practical, its value is edited to:
+  5
+
+Vulnerable Test Website
+- The practical uses:
+  http://testaspnet.vulnweb.com/login.aspx
+- It is used as the test environment for the session impersonation
+  demonstration.
+
+Memory trick:
+Tamper Data = intercept
+Request = browser -> server
+Session = user's active identity
+Impersonation = assume another session
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is Tamper Data?
+-> It is a browser extension used to intercept, view and modify
+   HTTP/HTTPS requests.
+
+2. What is session impersonation?
+-> It is the process of temporarily assuming another user's identity
+   or session.
+
+3. Which browser is used in this practical?
+-> Mozilla Firefox.
+
+4. Which extension is used?
+-> Tamper Data.
+
+5. What is the purpose of Tamper Data?
+-> To intercept, view and modify web requests.
+
+6. What is the vulnerable test website used in the practical?
+-> http://testaspnet.vulnweb.com/login.aspx
+
+7. What should be clicked to start Tamper Data?
+-> The Tamper Data (Cloud) icon, followed by Start Tamper.
+
+8. What username is entered in the practical?
+-> admin.
+
+9. What password is entered?
+-> Any password, as stated in the practical.
+
+10. What is Network Scanner used for in this practical?
+-> It is used as part of the request interception and modification
+    process shown in the practical.
+
+11. What value is entered for Upgrade Insecure Requests?
+-> 5.
+
+12. How many times is the modification repeated?
+-> The document says to repeat it 4 to 5 times.
+
+13. What is observed at the end?
+-> Multiple popups/windows appear, and the practical checks whether the
+    modified request works as another user's session.
+
+14. What is an HTTP request?
+-> A message sent by a browser to a web server to request or submit
+    information.
+
+15. Why is a vulnerable test website used?
+-> To perform the demonstration in a controlled testing environment.

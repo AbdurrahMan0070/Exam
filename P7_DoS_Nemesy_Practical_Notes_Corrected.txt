@@ -1,0 +1,168 @@
+Practical no: 07
+
+Aim: Use Nemesy to launch a DoS attack against a target system or network.
+Observe the impact of the attack on the target's availability and performance.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Open Oracle VM VirtualBox.
+
+Step 2: Create a new Virtual Machine.
+        - Open Oracle VM VirtualBox.
+        - Click New.
+        - Create the required virtual machine.
+
+Step 3: Open Command Prompt / Terminal.
+
+Step 4: Check the network configuration.
+
+        Windows:
+            ipconfig
+
+        OUTPUT:
+        The IP address, subnet mask and default gateway of the system
+        are displayed.
+
+        In the practical screenshot, the Windows system shows:
+            IPv4 Address: 192.168.1.194
+            Subnet Mask: 255.255.255.0
+            Default Gateway: 192.168.1.1
+
+Step 5: Check the network configuration inside the Linux virtual machine.
+
+        Type:
+            ifconfig
+
+        OUTPUT:
+        The network interface and its IP address are displayed.
+
+        In the practical screenshot, the Ethernet interface shows:
+            inet addr: 10.0.2.15
+            Mask: 255.255.255.0
+
+Step 6: In the authorized lab environment, run the command shown in
+        the practical image:
+
+            ping 192.168.1.194 -t -l 65500
+
+        Meaning:
+        - ping = sends ICMP echo requests to the target.
+        - 192.168.1.194 = target IP address shown in the document.
+        - -t = continuously sends requests until stopped.
+        - -l 65500 = sends packets with a data size of 65500 bytes.
+
+        OUTPUT:
+        The screenshot shows repeated replies from 192.168.1.194 with
+        65500 bytes of data.
+
+Step 7: Observe the target's availability and performance while the
+        test is running.
+
+Step 8: Stop the command when the observation is complete.
+
+Step 9: Take screenshots of:
+        - VirtualBox virtual machine
+        - Network configuration
+        - Command/output
+        - Observed result
+
+NOTE:
+- Perform this only on the authorized lab/virtual-machine environment.
+- The document's text says "Use Nemesy", but the provided screenshots
+  show the commands ipconfig, ifconfig and:
+      ping 192.168.1.194 -t -l 65500
+  No separate Nemesy command is visible in the provided document.
+
+
+======================== NOTES (THEORY) ======================
+
+DoS Attack
+- DoS = Denial-of-Service.
+- It tries to make a machine or network resource unavailable to
+  intended users.
+- It can temporarily or indefinitely disrupt a service.
+
+How DoS Works
+- A target may be flooded with excessive requests.
+- This can overload the system and prevent legitimate requests from
+  being fulfilled.
+- Information may also be sent that causes a service or system to crash.
+
+Ping
+- Ping is used to check whether a target is reachable.
+- It sends ICMP echo requests and receives replies from the target.
+
+IP Address
+- An IP address identifies a device on a network.
+- Example from the practical:
+  192.168.1.194
+
+-t option
+- Sends ping requests continuously until the command is stopped.
+
+-l option
+- Specifies the size of the data sent in each ping request.
+
+Virtual Machine
+- A virtual machine is a computer system running inside another
+  computer.
+- VirtualBox is used to create the virtual machine in this practical.
+
+Memory trick:
+DoS = Deny Service
+-t = continuous
+-l = packet size
+ping = test reachability
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is DoS?
+-> DoS stands for Denial-of-Service.
+
+2. What is a DoS attack?
+-> It is an attack that tries to make a machine or network resource
+   unavailable to its intended users.
+
+3. What is the aim of this practical?
+-> To use Nemesy for a DoS attack and observe its effect on
+   availability and performance.
+
+4. What command is shown in the practical screenshot?
+-> ping 192.168.1.194 -t -l 65500
+
+5. What does ping do?
+-> It sends ICMP requests to check whether a target is reachable.
+
+6. What does -t do in the ping command?
+-> It sends requests continuously until stopped.
+
+7. What does -l 65500 do?
+-> It sends ping packets with 65500 bytes of data.
+
+8. What is the target IP shown in the practical?
+-> 192.168.1.194
+
+9. What command is used to check Windows network configuration?
+-> ipconfig
+
+10. What command is used to check Linux network configuration?
+-> ifconfig
+
+11. What is availability?
+-> Availability means that a system or service is accessible and usable.
+
+12. What is performance?
+-> Performance describes how well a system responds while handling
+    requests.
+
+13. Why is VirtualBox used?
+-> To create the virtual/lab environment for the practical.
+
+14. What can happen when a system is overloaded?
+-> Legitimate requests may not be fulfilled and the service may become
+    unavailable.
+
+15. Why should this practical be performed only in a lab environment?
+-> To avoid affecting real systems and to ensure the activity is
+    authorized.

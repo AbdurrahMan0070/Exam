@@ -1,0 +1,212 @@
+Practical no: 10
+
+Aim: Perform SQL Injection attack.
+
+- Identify a web application vulnerable to SQL injection.
+- Craft and execute SQL injection queries to exploit the vulnerability.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Extract the DVWA ZIP file.
+
+Step 2: Copy the extracted folder and paste it in:
+        C:\xampp\htdocs
+
+Step 3: Rename the folder as:
+        DVWA
+
+Step 4: Open the config folder inside DVWA.
+        - Rename the configuration file as:
+          config.inc.php
+
+Step 5: Start Apache and MySQL from the XAMPP Control Panel.
+
+Step 6: Open Chrome and go to:
+        localhost/DVWA
+
+Step 7: Click Create / Reset Database.
+        - The database will be created.
+        - Click Login.
+
+Step 8: Set the DVWA security level to Low.
+        - Open DVWA Security.
+        - Select:
+          Low
+        - Click Submit.
+
+Step 9: Open SQL Injection from the DVWA menu.
+
+Step 10: In the User ID field, type:
+         1
+
+         Click Submit.
+
+         OUTPUT:
+         The page displays the details for User ID 1, including the
+         first name and surname shown in the practical.
+
+Step 11: Test the SQL injection input shown in the document.
+
+         Type:
+         1' or true;#
+
+         Click Submit.
+
+         OUTPUT:
+         Multiple user records are displayed, showing that the input
+         changed the intended SQL query logic.
+
+Step 12: Open the second test website shown in the practical:
+         http://testfire.net/login.jsp
+
+Step 13: First try normal login:
+         Username: admin
+         Password: admin
+
+         OUTPUT:
+         The screenshot shows that the normal login is unsuccessful.
+
+Step 14: Use the SQL injection input shown in the document.
+
+         Username:
+         ' OR 1=1--
+
+         Password:
+         Any password
+
+Step 15: Click Login.
+
+         OUTPUT:
+         The practical screenshot shows a successful login as the
+         Admin user using the injected input.
+
+Step 16: Take screenshots of:
+         - DVWA Security level
+         - Normal SQL Injection result
+         - SQL Injection result after the test input
+         - Normal login attempt
+         - Successful login result
+
+
+NOTE:
+- Perform SQL injection only on the provided lab/vulnerable applications
+  or systems for which you have permission to test.
+- The exact SQL injection inputs above are reproduced from the provided
+  practical document; no additional payloads have been added.
+
+
+======================== NOTES (THEORY) ======================
+
+SQL Injection
+- SQL Injection (SQLi) is a web security vulnerability caused by
+  improper handling of user input before it is used in SQL queries.
+- It can allow an attacker to change the intended database query.
+
+Working Principle
+- A web application sends SQL queries to a database.
+- If user input is directly added to the query without proper
+  validation or parameterization, the input can change the query logic.
+- This may allow authentication bypass or access to database information.
+
+Types of SQL Injection
+- In-band SQL Injection = injection and results use the same channel.
+- Blind SQL Injection = information is inferred from application
+  responses when database errors/results are not directly shown.
+- Time-based Blind SQL Injection = time delays are used to infer results.
+- Out-of-band SQL Injection = information is obtained through another
+  communication channel such as DNS or HTTP.
+
+Effects of SQL Injection
+- Unauthorized access to confidential information.
+- Bypassing authentication.
+- Reading, modifying or deleting database records.
+- Compromising application integrity.
+- Loss of data confidentiality and availability.
+
+Identifying SQL Injection Vulnerabilities
+- User input is directly used in SQL queries.
+- Database error messages reveal information.
+- Input validation is weak or absent.
+- Dynamic SQL queries are created by joining user input with SQL.
+
+Prevention of SQL Injection
+- Use parameterized queries / prepared statements.
+- Validate and sanitize user input.
+- Use stored procedures securely.
+- Follow the principle of least privilege.
+- Avoid displaying detailed database errors.
+- Use Web Application Firewalls (WAF).
+- Perform regular security testing and code reviews.
+
+Memory trick:
+SQLi = User input changes SQL
+Prepared statements = safer SQL
+Low security = vulnerable DVWA testing level
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is SQL Injection?
+-> SQL Injection is a web security vulnerability in which improper
+   handling of user input allows the SQL query logic to be changed.
+
+2. What is the full form of SQLi?
+-> SQL Injection.
+
+3. How does SQL Injection occur?
+-> It occurs when user input is directly included in SQL queries without
+   proper validation or parameterization.
+
+4. What can SQL Injection cause?
+-> It can cause unauthorized access, authentication bypass, data
+   modification or deletion, and loss of confidentiality.
+
+5. What is the purpose of setting DVWA security to Low?
+-> To use the vulnerable functionality for the practical.
+
+6. What input is used in the DVWA practical?
+-> 1' or true;#
+
+7. What happens after the DVWA SQL injection input is submitted?
+-> Multiple user records are displayed, showing that the query logic
+   was changed.
+
+8. What is the first normal login attempted on testfire.net?
+-> Username: admin
+   Password: admin
+
+9. What SQL injection username is shown for the testfire.net login?
+-> ' OR 1=1--
+
+10. What password is used with the injected username?
+-> Any password.
+
+11. What is the result shown after the injected login?
+-> The practical shows a successful login as the Admin user.
+
+12. What is In-band SQL Injection?
+-> The injection and the results use the same communication channel.
+
+13. What is Blind SQL Injection?
+-> The application does not directly show the database information, so
+    information is inferred from the application's responses.
+
+14. What is Time-based Blind SQL Injection?
+-> It uses database response delays to determine whether a condition is
+    true or false.
+
+15. What is Out-of-band SQL Injection?
+-> It obtains data through a different communication channel such as
+    DNS or HTTP.
+
+16. How can SQL Injection be prevented?
+-> Use prepared statements, validate input, use least-privilege
+    database accounts, avoid detailed database errors and perform
+    regular security testing.
+
+17. What is parameterized query?
+-> It is a query where user input is supplied as a parameter instead of
+    being directly joined with the SQL statement.
+
+18. Why is SQL Injection dangerous?
+-> Because it can affect both application security and database data.

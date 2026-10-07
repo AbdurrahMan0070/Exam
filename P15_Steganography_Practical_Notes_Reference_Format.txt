@@ -1,0 +1,183 @@
+Practical no: 15
+
+Aim: To study the steps for hiding and extract any text file behind an
+image file/audio file using command prompt.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Create a new folder in C drive.
+        - Create:
+          C:\Stegano
+
+Step 2: Download/select the required files.
+        - Place one image file such as:
+          images.jpg
+        - Place one text file such as:
+          message.txt
+        - Save both files inside:
+          C:\Stegano
+
+Step 3: Open Command Prompt.
+
+Step 4: Change the directory to the Stegano folder.
+
+        Type:
+            cd C:\Stegano
+
+Step 5: Combine the image file and text file into a new image file.
+
+        Type:
+            copy /b images.jpg+message.txt hidden.jpg
+
+        OUTPUT:
+        The command copies the image and text file together and creates:
+            hidden.jpg
+
+Step 6: Check the hidden file.
+
+        Type:
+            type hidden.jpg
+
+        OUTPUT:
+        The command displays the contents of the file in Command Prompt.
+        The practical screenshot shows the beginning of the JPEG data.
+
+Step 7: Check the file sizes in the Stegano folder.
+
+        Type:
+            dir
+
+        OUTPUT:
+        The screenshot shows:
+            hidden.jpg   70,270 bytes
+            images.jpg   70,244 bytes
+            message.txt  26 bytes
+
+        Observation:
+        The size of hidden.jpg is the combined size of the original
+        image and text data.
+
+Step 8: Take screenshots of:
+        - C:\Stegano folder containing the image and text file.
+        - cd C:\Stegano command.
+        - copy /b command and its output.
+        - type hidden.jpg output.
+        - dir output showing the file sizes.
+
+
+NOTE:
+- The provided document demonstrates the hiding/combining process and
+  checking the resulting file size.
+- Although the aim mentions extracting the hidden text file, no separate
+  extraction command is shown in the provided practical document.
+- Therefore, no extraction command has been invented here.
+
+
+======================== NOTES (THEORY) ======================
+
+Steganography
+- Steganography is the technique of hiding information inside another
+  file or medium.
+- In this practical, a text file is combined with an image file.
+
+Cover File
+- The original file used to carry the hidden information.
+- Here, the image file is the cover file.
+
+Hidden File
+- The file containing the information that is hidden.
+- Here, message.txt is the text file being hidden.
+
+Hidden Image
+- The new image file created after combining the image and text file.
+- Here, the output file is:
+  hidden.jpg
+
+copy /b
+- /b means binary copy.
+- It allows the image and text file data to be copied together.
+
+type
+- The type command displays the contents of a file in Command Prompt.
+
+dir
+- The dir command displays the files and folders in the current directory.
+- It also shows file sizes.
+
+File Size
+- Original image:
+  70,244 bytes
+- Text file:
+  26 bytes
+- Hidden image:
+  70,270 bytes
+
+Memory trick:
+Steganography = Hide information
+Cover file = Image
+Hidden file = Text
+copy /b = Combine
+type = Display
+dir = Check files and size
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is steganography?
+-> Steganography is the technique of hiding information inside another
+   file or medium.
+
+2. What is the aim of this practical?
+-> To study how a text file can be hidden behind an image/audio file
+   using Command Prompt.
+
+3. What folder is created in this practical?
+-> C:\Stegano
+
+4. Which files are used in the practical?
+-> An image file, images.jpg, and a text file, message.txt.
+
+5. Which command is used to change the directory?
+-> cd C:\Stegano
+
+6. Which command is used to combine the image and text file?
+-> copy /b images.jpg+message.txt hidden.jpg
+
+7. What does /b mean?
+-> It means binary copy.
+
+8. What is the output file?
+-> hidden.jpg
+
+9. What does the type command do?
+-> It displays the contents of a file in Command Prompt.
+
+10. Which command is used to check the files and their sizes?
+-> dir
+
+11. What is the size of images.jpg in the practical?
+-> 70,244 bytes.
+
+12. What is the size of message.txt?
+-> 26 bytes.
+
+13. What is the size of hidden.jpg?
+-> 70,270 bytes.
+
+14. What is a cover file?
+-> It is the file used to carry the hidden information.
+
+15. What is the hidden file in this practical?
+-> message.txt.
+
+16. What is the purpose of hidden.jpg?
+-> It is the new image file containing the image data and appended text
+    data.
+
+17. What is the difference between steganography and encryption?
+-> Steganography hides the existence of information, while encryption
+    changes information into an unreadable form.
+
+18. Is an extraction command shown in the provided practical?
+-> No. The document shows the hiding/combining process and file-size
+   verification, but it does not show a separate extraction command.

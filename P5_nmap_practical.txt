@@ -1,0 +1,145 @@
+Practical no: 05
+
+Aim: Perform command in nmap
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Open Command Prompt / Terminal.
+
+Step 2: Check that Nmap is installed.
+        Type:
+            nmap --version
+        OUTPUT: Nmap version information is displayed.
+
+Step 3: Perform an ACK scan.
+        Type:
+            nmap -sA -T4 scanme.nmap.org
+        OUTPUT: The scan shows the target is up and reports ports as
+        filtered or unfiltered.
+        --> Take a screenshot (ACK Scan).
+
+Step 4: Scan specific ports.
+        Type:
+            nmap -p 22,113,139 192.168.56.1
+        OUTPUT: Only ports 22, 113 and 139 are scanned.
+        --> Take a screenshot (Specific Port Scan).
+
+Step 5: Perform a FIN scan.
+        Type:
+            nmap -sF -T4 192.168.56.1
+        OUTPUT: Nmap performs a FIN scan and reports the port states.
+        --> Take a screenshot (FIN Scan).
+
+Step 6: Perform a NULL scan.
+        Type:
+            nmap -sN -p 22 192.168.56.1
+        OUTPUT: Nmap performs a NULL scan on port 22.
+        --> Take a screenshot (NULL Scan).
+
+Step 7: Perform an Xmas scan.
+        Type:
+            nmap -sX -T4 192.168.56.1
+        OUTPUT: Nmap performs an Xmas scan using FIN, PSH and URG flags.
+        --> Take a screenshot (Xmas Scan).
+
+Step 8: Paste all screenshots in your practical document under the
+        headings: ACK Scan, Specific Port Scan, FIN Scan, NULL Scan,
+        Xmas Scan.
+        Write one line of observation under each screenshot.
+
+
+======================== NOTES (THEORY) ======================
+
+Nmap
+- Nmap = Network Mapper.
+- It is used to scan hosts, ports and services on a network.
+
+Port
+- A port is a logical communication endpoint used by network services.
+- Port 22 = SSH, 113 = Ident, 139 = NetBIOS Session Service.
+
+ACK Scan
+- Uses TCP ACK packets.
+- Used to determine whether firewall rules are filtering ports.
+
+FIN Scan
+- Sends TCP FIN packets to probe port states.
+
+NULL Scan
+- Sends a TCP packet with no flags set.
+- Helps identify whether a port is open or filtered on systems that
+  follow RFC behavior.
+
+Xmas Scan
+- Sends TCP packets with FIN, PSH and URG flags set.
+
+Nmap Options
+-------------------------------------------------------------------------
+Option     | Purpose
+-------------------------------------------------------------------------
+-sA        | ACK scan
+-sF        | FIN scan
+-sN        | NULL scan
+-sX        | Xmas scan
+-p         | Select specific port(s)
+-T4        | Faster/aggressive timing
+-------------------------------------------------------------------------
+
+Memory trick:
+-sA = ACK, -sF = FIN, -sN = NULL, -sX = XMAS,
+-p = PORT, -T4 = FASTER.
+
+
+Port States
+- Open = a service is listening on the port.
+- Closed = the port is reachable but no service is listening.
+- Filtered = a firewall or filter prevents Nmap from determining
+  the port state.
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is Nmap?
+-> Nmap is a network scanning tool used to discover hosts, ports and services.
+
+2. What is the full form of Nmap?
+-> Network Mapper.
+
+3. What is an ACK scan?
+-> It uses ACK packets to determine whether firewall rules are filtering ports.
+
+4. What does -sA do?
+-> It performs an ACK scan.
+
+5. What does -sF do?
+-> It performs a FIN scan.
+
+6. What does -sN do?
+-> It performs a NULL scan.
+
+7. What does -sX do?
+-> It performs an Xmas scan.
+
+8. What does -p do in Nmap?
+-> It specifies the port or ports to scan.
+
+9. What does -T4 mean?
+-> It uses Timing Template 4 for faster/aggressive scanning.
+
+10. What is a FIN scan?
+-> A scan that sends TCP FIN packets to probe port states.
+
+11. What is a NULL scan?
+-> A scan that sends a TCP packet with no flags set.
+
+12. What is an Xmas scan?
+-> A scan that sends packets with FIN, PSH and URG flags set.
+
+13. What is the difference between open and closed port?
+-> Open means a service is listening; closed means no service is listening.
+
+14. What is a filtered port?
+-> A port whose state cannot be determined because of filtering.
+
+15. Which ports are scanned in the second command?
+-> Ports 22, 113 and 139.

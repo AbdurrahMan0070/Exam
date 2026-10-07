@@ -1,0 +1,159 @@
+Practical 3: Creating a Keylogger with Python (Safe Simulation)
+Aim: Write a Python script that captures and logs keystrokes from a target system, execute it, and observe the logged keystrokes.
+
+Tools needed: Python 3 installed, IDLE (or any code editor)
+NOTE: This is a SAFE SIMULATION of a keylogger. Instead of silently capturing
+real keyboard events, it asks the user to type text with input() and logs
+each entry with a timestamp - this demonstrates the concept without actually
+monitoring the keyboard in the background.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Check Python is installed.
+        Open Command Prompt and type:
+            python --version
+        OUTPUT: Shows the installed Python version.
+
+Step 2: Open IDLE (or your code editor) and create a new file.
+        Save it as, for example:  EH&CF_01.py
+
+Step 3: Type the following code into the file:
+
+---------- EH&CF_01.py ----------
+from datetime import datetime
+
+log_file = "keystroke_log.txt"
+
+print("Safe Keystroke Logger Simulation")
+print("Type 'exit' to quit.\n")
+
+while True:
+    text = input("Enter text: ")
+
+    if text.lower() == "exit":
+        print("Logging stopped.")
+        break
+
+    with open(log_file, "a") as f:
+        f.write(f"{datetime.now()} : {text}\n")
+
+print(f"Logs saved in {log_file}")
+-----------------------------------
+
+Step 4: Save the file (Ctrl+S).
+
+Step 5: Run the script.
+        In IDLE press F5 (Run Module), or in Command Prompt type:
+            python EH&CF_01.py
+        OUTPUT:
+            Safe Keystroke Logger Simulation
+            Type 'exit' to quit.
+
+            Enter text:
+
+Step 6: At each "Enter text:" prompt, type a word or sentence and press Enter.
+            Example:
+                Enter text: Ethical
+                Enter text: Hacking
+        Each entry you type is saved to keystroke_log.txt along with the
+        exact date and time it was entered.
+        --> Take a screenshot (Code / Running).
+
+Step 7: Type  exit  (or Exit) at the prompt to stop the program.
+        OUTPUT:
+            Logging stopped.
+            Logs saved in keystroke_log.txt
+        --> Take a screenshot (Output - program window).
+
+Step 8: Open keystroke_log.txt (created in the same folder as the script),
+        e.g. by double-clicking it to open in Notepad.
+        OUTPUT: Each line shows a timestamp and the text you entered, e.g.:
+            2026-07-07 11:02:34.827350 : Ethical
+            2026-07-07 11:02:39.828342 : Hacking
+        --> Take a screenshot (keystroke_log.txt content).
+
+Step 9: Paste the code and output screenshots in your practical document
+        under the headings: Code, Output.
+
+======================== NOTES (THEORY) ======================
+
+Keylogger (Keystroke Logger)
+- A program (or hardware device) that records every key pressed on a keyboard.
+- A real/malicious keylogger runs silently in the background and can capture
+  sensitive data: passwords, emails, card numbers, chats, without the user noticing.
+- This practical uses a SAFE SIMULATION: it only logs text you deliberately
+  type into the input() prompt, with a timestamp, instead of hooking into
+  real keyboard events in the background.
+
+How this script works
+- datetime.now() gets the current date and time.
+- The while True loop keeps asking "Enter text:" until the user types "exit".
+- text.lower() == "exit" checks the input in a case-insensitive way
+  (so "Exit", "EXIT", "exit" all work) and breaks out of the loop.
+- open(log_file, "a") opens keystroke_log.txt in APPEND mode, so new
+  entries are added without erasing the previous ones.
+- f.write(f"{datetime.now()} : {text}\n") writes one line per entry,
+  with the timestamp, a colon, the typed text, and a new line.
+
+Real keylogger vs this simulation
+- Real keylogger: runs in the background, captures every key press
+  automatically (often using a library like pynput), without the user
+  typing into any visible prompt.
+- This simulation: only logs what the user willingly types at a visible
+  input() prompt - safe for learning, nothing is captured secretly.
+
+Types of keyloggers
+- Software keylogger: a program installed on the system.
+- Hardware keylogger: a small physical device plugged between keyboard and computer.
+
+Why keyloggers are a security risk
+- A real one runs silently, so the victim doesn't know they are being logged.
+- Logged data (passwords, OTPs, messages) can be sent to an attacker.
+- Antivirus/anti-malware tools scan for and flag keylogger-like behaviour.
+
+How to protect against keyloggers
+- Use updated antivirus/anti-malware software.
+- Avoid downloading/running unknown or pirated software.
+- Use on-screen keyboards or password managers for sensitive logins.
+- Enable two-factor authentication (2FA) so a stolen password alone isn't enough.
+
+Memory trick: Keylogger = "records what you type"; this version only records
+what you type into its own prompt, with a timestamp - a safe teaching version.
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is a keylogger?
+-> A tool (software or hardware) that records keystrokes made on a keyboard.
+
+2. What is the purpose of a keylogger in cybersecurity?
+-> To understand how attackers can steal sensitive data like passwords, and to demonstrate/test this vulnerability, or for authorized monitoring.
+
+3. Why is this program called a "safe simulation" and not a real keylogger?
+-> Because it only logs text the user willingly types into a visible input() prompt, instead of silently capturing real background keystrokes.
+
+4. What does datetime.now() do in this code?
+-> It returns the current date and time, which is added to each log entry.
+
+5. What is the purpose of the while True loop?
+-> It keeps asking the user for text repeatedly until "exit" is typed.
+
+6. How does the program stop?
+-> When the user types "exit" (checked case-insensitively with .lower()), which breaks the loop.
+
+7. What does open(log_file, "a") do?
+-> Opens the log file in append mode, so new entries are added to the end without deleting existing ones.
+
+8. Where are the entries stored?
+-> In a text file named keystroke_log.txt, in the same folder as the script.
+
+9. What is the difference between a real keylogger and this simulation?
+-> A real keylogger captures every keystroke automatically in the background; this simulation only logs text entered manually at its own prompt.
+
+10. What are the two types of keyloggers?
+-> Software keyloggers (programs) and hardware keyloggers (physical devices).
+
+11. Is using a keylogger always illegal?
+-> No - it is legal with proper consent (e.g., monitoring your own systems) and illegal when used on someone else's device without permission.
+
+12. How can a user protect themselves from real keyloggers?
+-> Use antivirus software, avoid untrusted downloads, use 2FA, and use password managers or on-screen keyboards for sensitive logins.

@@ -1,0 +1,243 @@
+Practical no: 13
+
+Aim: To perform Browser History Forensics using Browser History Examiner.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Download Browser History Examiner.
+        - Download the trial version of Browser History Examiner.
+        - Install the software using the setup wizard.
+        - Complete the installation and open Browser History Examiner.
+
+Step 2: Open Browser History Examiner.
+        - The main window provides options such as:
+          Capture History
+          Load History
+
+Step 3: Capture browser history.
+        - Click:
+          Capture History
+        - Select the required user profile.
+        - The practical screenshot shows:
+          User Profile: Administrator
+
+Step 4: Select the browsers to examine.
+        - The practical shows browser options including:
+          Chrome
+          Edge
+          Firefox
+          Internet Explorer & Edge Legacy
+        - Select the required browsers.
+
+Step 5: Select the data to capture.
+        - Select the required browser data such as:
+          History
+          Cache
+          Download History
+          Cookies
+          Bookmarks
+          and other available browser data.
+        - Select the destination folder for the captured history.
+        - Click Capture.
+
+Step 6: Load and examine the captured history.
+        - Open/load the captured history in Browser History Examiner.
+        - The application displays browser forensic information in
+          different categories.
+        - Select a category from the left panel.
+        - Browse the records shown in the main table.
+
+Step 7: Examine browser history records.
+        - Check details such as:
+          Date Created
+          URL
+          Title
+          Browser Profile
+          and other available information.
+        - Use the different categories to examine the captured data.
+
+Step 8: Examine cached data and media.
+        - Open the relevant cached web pages/media section.
+        - The practical screenshot shows a visual grid containing
+          recovered/cached images and other web content.
+
+Step 9: Generate a report.
+        - Click:
+          Report
+        - Select:
+          Save as PDF
+          or
+          Save as HTML
+        - Select the required report option and save the report.
+
+Step 10: Export browser forensic data.
+         - Click:
+           Export
+         - Select the data to export.
+         - The practical shows options such as:
+           Bookmarks
+           Cached Files
+           Cached Web Pages
+           Download History
+           Extensions
+           Form History
+           Searches
+           Site Settings
+           Browser Settings
+           Cached Images
+           Cookies
+           Email Addresses
+           Favorites
+           Logins
+           Session Tabs
+           Site Storage
+         - Select:
+           Export all records
+           or another required export option.
+         - Click Export.
+
+Step 11: Select the export format/location.
+         - Choose the destination folder.
+         - Enter the output filename.
+         - The practical shows HTML as the export format.
+         - Click Save.
+
+Step 12: Verify the exported data.
+         - Open the generated HTML report.
+         - Check that the selected browser history records are displayed
+           correctly.
+
+Step 13: Take screenshots of:
+         - Browser History Examiner installation
+         - Capture History settings
+         - Captured history records
+         - Cached/media information
+         - Report options
+         - Export settings
+         - Final exported HTML report
+
+
+======================== NOTES (THEORY) ======================
+
+Browser History Forensics
+- Browser history forensics is the examination of browser data to
+  identify a user's web activity.
+- It can help examine browsing history, downloads, cached content,
+  cookies and other browser information.
+
+Browser History Examiner
+- Browser History Examiner is used to capture, load and analyze
+  browser history data.
+- It can display browser records and generate/export reports.
+
+Capture History
+- Capture History collects browser data from the selected user profile
+  and browsers.
+- The practical uses the Administrator profile.
+
+Load History
+- Load History is used to open previously captured browser history data
+  for analysis.
+
+Browser History
+- Browser history contains records of websites/pages visited by the
+  user.
+- Records can include date/time, URL and page title.
+
+Cache
+- Browser cache stores copies of web content used by the browser.
+- Cached data can contain web pages, images and other content.
+
+Download History
+- Download History contains information about files downloaded through
+  the browser.
+
+Cookies
+- Cookies are small pieces of data stored by websites in the browser.
+- They can contain information related to website sessions and
+  preferences.
+
+Bookmarks
+- Bookmarks are saved links to websites.
+
+Report
+- The software can generate reports from the analyzed browser data.
+- The practical shows:
+  Save as PDF
+  Save as HTML
+
+Export
+- Export saves selected browser forensic records to an external file.
+- The practical shows HTML export.
+
+Memory trick:
+Capture = collect
+Load = open captured data
+History = visited websites
+Cache = stored web content
+Download History = downloaded files
+Report = PDF / HTML
+Export = save selected records
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is browser history forensics?
+-> It is the examination of browser data to investigate a user's web
+   activity.
+
+2. What is Browser History Examiner?
+-> It is a tool used to capture, load and analyze browser history data.
+
+3. What is the aim of this practical?
+-> To examine browser history and related browser data using Browser
+   History Examiner.
+
+4. What is Capture History?
+-> It collects browser data from the selected user profile and browsers.
+
+5. What is Load History?
+-> It loads previously captured browser history for analysis.
+
+6. Which user profile is shown in the practical?
+-> Administrator.
+
+7. Which browsers are shown in the practical?
+-> Chrome, Edge, Firefox and Internet Explorer & Edge Legacy.
+
+8. What is browser history?
+-> It contains records of websites/pages visited by the user.
+
+9. What is browser cache?
+-> It stores copies of web content used by the browser.
+
+10. What is Download History?
+-> It contains information about files downloaded through the browser.
+
+11. What are cookies?
+-> Cookies are small pieces of data stored by websites in the browser.
+
+12. What are bookmarks?
+-> Bookmarks are saved links to websites.
+
+13. What can be generated using the Report option?
+-> Reports can be saved as PDF or HTML.
+
+14. What is the purpose of Export?
+-> It saves selected browser forensic records to an external file.
+
+15. What export format is shown in the practical?
+-> HTML.
+
+16. What types of data can be exported?
+-> Data such as bookmarks, cached files/web pages, download history,
+    cookies, searches, logins, session tabs and site storage can be
+    selected.
+
+17. Why is browser history useful in forensics?
+-> It can provide information about a user's browsing activity and
+    related browser data.
+
+18. What should be checked after exporting the report?
+-> Open the exported file and verify that the selected records are
+    displayed correctly.

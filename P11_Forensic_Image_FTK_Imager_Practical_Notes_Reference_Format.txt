@@ -1,0 +1,219 @@
+Practical no: 11
+
+Aim: Creating Forensic Image using FTK Imager/Encase Imager:
+- Creating Forensic Image
+- Check Integrity of Data
+- Analyze Forensics Image
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Install AccessData FTK Imager.
+        - Install the latest version of AccessData FTK Imager.
+        - Complete the installation using the InstallShield wizard.
+        - Launch FTK Imager after installation.
+
+Step 2: Create a forensic image.
+        - Click File.
+        - Select Create Disk Image.
+
+Step 3: Select the Source Evidence Type.
+        - Select the source type you want to create an image of.
+        - Click Next.
+        - The document shows:
+          Physical Drive
+          Logical Drive
+          Image File
+          Contents of a Folder
+          Forensic Device
+        - Click Yes when the confirmation message appears.
+
+Step 4: Select the source evidence file.
+        - Enter or browse to the source path.
+        - In the practical screenshot, the source path is:
+          C:\Users\Administrator\Desktop\tyc19
+        - Click Finish.
+
+Step 5: Add an image destination.
+        - Click Add under Image Destination(s).
+
+Step 6: Enter evidence information.
+        - Fill in the evidence details.
+        - The screenshot shows:
+          Case Number: 1
+          Evidence Number: 1
+          Unique Description: Iron man
+          Examiner: tony stark
+        - Click Next.
+
+Step 7: Select the image destination.
+        - Enter the folder where the forensic image will be saved.
+        - Enter an image filename.
+        - Do not specify a file extension in the Image Filename field.
+        - The screenshot shows:
+          Image Fragment Size: 1500 MB
+          Compression: 5
+        - Click Finish.
+
+Step 8: Start image processing.
+        - Tick all the available boxes shown in the practical.
+        - Click Start.
+        - FTK Imager creates the forensic image.
+
+Step 9: Verify the created image.
+        - After the image is created, Image Summary / Verify Results
+          displays the file information.
+        - Check the MD5 and SHA1 hashes.
+        - The practical screenshot shows:
+          MD5 Verify result: Match
+          SHA1 Verify result: Match
+
+Step 10: Analyze the forensic image.
+         - Click File.
+         - Select Add Evidence Item.
+
+Step 11: Select the evidence type.
+         - Select:
+           Image File
+         - Click Next.
+
+Step 12: Open the created evidence image.
+         - Browse to the created image file.
+         - In the practical screenshot, the image file is:
+           image2.ad1
+         - Click Finish.
+
+Step 13: Analyze the image.
+         - Select the Evidence Tree.
+         - Open the created image.
+         - Browse the files and folders shown in the image.
+         - The final screenshot shows the contents of the forensic image
+           in the File List and a selected image preview.
+
+Step 14: Take screenshots of:
+         - Create Disk Image settings
+         - Evidence information
+         - Image destination
+         - MD5/SHA1 verification
+         - Evidence Tree
+         - Analyzed image contents
+
+
+======================== NOTES (THEORY) ======================
+
+Forensic Image
+- A forensic image is a copy of digital evidence created for forensic
+  examination.
+- It allows investigators to examine evidence without working directly
+  on the original source.
+
+FTK Imager
+- FTK Imager is a forensic imaging and evidence examination tool.
+- It can create forensic images, verify image integrity and analyze
+  evidence.
+
+Source Evidence
+- Source evidence is the drive, image, folder or other evidence selected
+  for creating the forensic image.
+
+Image Destination
+- Image destination is the location where the created forensic image
+  is saved.
+
+MD5 Hash
+- MD5 is a hash value used to check the integrity of data.
+- FTK Imager compares the calculated and reported hash values.
+
+SHA1 Hash
+- SHA1 is another hash value used for integrity verification.
+
+Verify Result: Match
+- Match means the calculated hash and reported hash are the same.
+- This indicates that the image passed the verification shown in the
+  practical.
+
+Evidence Tree
+- Evidence Tree displays the added forensic evidence and its structure.
+- It is used to browse the contents of the forensic image.
+
+Image File
+- An image file is a forensic image added to FTK Imager for analysis.
+- The practical uses the created image file image2.ad1.
+
+Compression
+- Compression reduces the storage space required for the forensic image.
+- The screenshot shows compression level 5.
+
+Image Fragment Size
+- It specifies the size of image fragments when the image is divided
+  into parts.
+- The practical screenshot shows 1500 MB.
+
+Memory trick:
+Create Image = Source -> Destination -> Start
+Integrity = MD5 + SHA1
+Match = Verified
+Analyze = Add Evidence -> Image File -> Evidence Tree
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is a forensic image?
+-> It is a copy of digital evidence created for forensic examination.
+
+2. What is FTK Imager?
+-> FTK Imager is a forensic tool used to create, verify and analyze
+   forensic images.
+
+3. What is the aim of this practical?
+-> To create a forensic image, check its integrity and analyze it.
+
+4. What is source evidence?
+-> It is the drive, folder, image or other evidence selected for
+   creating the forensic image.
+
+5. How do you create a disk image in FTK Imager?
+-> File -> Create Disk Image -> Select Source -> Add Destination ->
+   Enter Details -> Start.
+
+6. What is the purpose of the image destination?
+-> It specifies where the created forensic image will be saved.
+
+7. Why should the image filename not include a file extension?
+-> FTK Imager handles the image format/extension during image creation.
+
+8. What is MD5?
+-> MD5 is a hash used to check data integrity.
+
+9. What is SHA1?
+-> SHA1 is a hash used for integrity verification.
+
+10. What does Verify result: Match mean?
+-> The calculated and reported hash values are the same.
+
+11. Why are MD5 and SHA1 checked?
+-> To verify the integrity of the created forensic image.
+
+12. What is the Evidence Tree?
+-> It displays the added evidence and allows its contents to be
+    browsed and analyzed.
+
+13. How do you add a forensic image for analysis?
+-> File -> Add Evidence Item -> Select Image File -> Open the created
+   image.
+
+14. What image file is shown in the practical?
+-> image2.ad1.
+
+15. What image fragment size is shown?
+-> 1500 MB.
+
+16. What compression level is shown?
+-> 5.
+
+17. What evidence details are shown in the practical?
+-> Case Number 1, Evidence Number 1, Unique Description Iron man and
+    Examiner tony stark.
+
+18. What is the purpose of creating a forensic image?
+-> To preserve digital evidence and allow it to be examined without
+    directly modifying the original source.

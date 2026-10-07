@@ -1,0 +1,177 @@
+Practical 4: Run and Analyze Networking Commands (Windows & Linux)
+Aim: Run and analyze the output of the following commands - ipconfig/ifconfig, ping, netstat, tracert/traceroute.
+
+Tools needed: Windows: Command Prompt (cmd) or PowerShell
+              Linux: a terminal (Ubuntu/any distro)
+Sample target used here: formula1.com
+(Screenshots below were taken on Linux/Ubuntu with interface enp0s3; the
+Windows commands give the same type of information on your own PC.)
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Open a terminal.
+        Windows: Press Win+R, type  cmd , press Enter (or search "Command Prompt").
+        Linux:   Open the Terminal app.
+
+Step 2: View network interface details.
+        WINDOWS:
+            ipconfig
+            (for more detail, use:  ipconfig /all )
+        LINUX:
+            ifconfig
+            (if "command not found":  sudo apt install net-tools )
+            (modern alternative:  ip addr  or  ip a )
+        OUTPUT: Shows each interface with its IP address, subnet mask
+        (Windows: "Subnet Mask", Linux: "netmask"), default gateway
+        (Windows only, shown directly), and MAC/physical address.
+        Linux example seen here: enp0s3 has inet 10.0.2.15, netmask
+        255.255.255.0, broadcast 10.0.2.255, MTU 1500, UP/RUNNING.
+        --> Take a screenshot (ipconfig / ifconfig).
+
+Step 3: Test reachability of a host (ping).
+        WINDOWS:
+            ping formula1.com
+            (Windows sends 4 packets by default, then stops automatically.)
+        LINUX:
+            ping formula1.com
+            (Linux pings continuously - press Ctrl+C to stop, or Ctrl+Z to pause.)
+        OUTPUT: One line per reply, showing bytes received, the resolved
+        IP address, TTL (time to live), and round-trip time.
+        (Windows shows "time=Xms", Linux shows "icmp_seq=N ttl=X time=X ms".)
+        Linux example seen here: 64 bytes from 99.83.136.94, ttl=246,
+        time around 10-18 ms per packet.
+        --> Take a screenshot (ping).
+
+Step 4: View active connections (netstat).
+        WINDOWS:
+            netstat
+            (for process IDs too, use:  netstat -ano  , run cmd as Administrator)
+        LINUX:
+            netstat
+            (if "command not found":  sudo apt install net-tools )
+            (modern alternative:  ss )
+        OUTPUT: Columns for Proto (tcp/udp), Local Address, Foreign
+        Address, and State (e.g. ESTABLISHED, TIME_WAIT, LISTENING/LISTEN).
+        Linux also shows a second section, "Active UNIX domain sockets",
+        for inter-process connections on the same machine - Windows does
+        not show this section.
+        --> Take a screenshot (netstat).
+
+Step 5: Map the path to a destination.
+        WINDOWS:
+            tracert formula1.com
+        LINUX:
+            traceroute formula1.com
+            (if "command not found":  sudo apt install traceroute )
+        OUTPUT: One line per hop (router) on the way to the destination,
+        with the hop number and round-trip time samples per hop (Windows:
+        3 time samples per hop; Linux: 3 time samples per hop).
+        Linux example seen here: hop 1 and hop 2 both show _gateway
+        (10.0.2.2) with times around 0.2-6.2 ms, since this is a VM
+        behind a NAT gateway.
+        --> Take a screenshot (tracert / traceroute).
+
+Step 6: Paste all four screenshots in your practical document under the
+        headings: ipconfig/ifconfig, ping, netstat, tracert/traceroute.
+        Write one or two lines of observation under each, as summarized
+        in the theory below.
+
+======================== NOTES (THEORY) ======================
+
+ipconfig (Windows) / ifconfig (Linux)
+- Shows a system's network interface configuration.
+- Windows "ipconfig": lists IP address, subnet mask, and default gateway
+  per adapter; "ipconfig /all" adds MAC address, DNS servers, DHCP info.
+- Linux "ifconfig": lists inet (IP), netmask, broadcast, MAC (ether), MTU,
+  and packet statistics (RX/TX bytes, errors). The loopback interface
+  "lo" (127.0.0.1) is how a Linux system talks to itself.
+- Note: ifconfig is legacy on Linux; "ip addr" / "ip a" is the modern
+  replacement. Windows still uses ipconfig as the standard tool.
+
+ping (same name, same idea, on both OS)
+- Tests whether a host is reachable over an IP network.
+- Sends ICMP Echo Request packets and waits for Echo Reply packets.
+- Measures round-trip time (RTT / latency) in milliseconds.
+- Key fields: bytes received, TTL (Time To Live - max hops before a
+  packet is discarded, decreasing by 1 at each router), time (RTT).
+- Windows sends a fixed 4 pings and stops; Linux pings forever until
+  you stop it manually (Ctrl+C).
+
+netstat (same name, same idea, on both OS)
+- Displays active TCP/UDP connections, listening ports, and (with the
+  right flag) routing/interface statistics.
+- Proto = protocol, Local Address = your machine's address:port,
+  Foreign Address = the remote address:port, State = connection status.
+- Common states: ESTABLISHED (active connection), LISTEN/LISTENING
+  (waiting for connections), TIME_WAIT (recently closed, finishing up).
+- Windows "netstat -ano" additionally shows the Process ID (PID) using
+  each connection, handy for finding which program opened it.
+- Linux also lists UNIX domain sockets (local inter-process
+  communication, not network traffic) - Windows has no equivalent line.
+- Note: netstat is legacy on Linux; "ss" is the modern replacement.
+  Windows still uses netstat as the standard tool.
+
+tracert (Windows) / traceroute (Linux)
+- Maps the path (route) packets take from your system to a destination,
+  hop by hop, and measures the latency to reach each hop.
+- Helps identify where a connection is slow or breaks (a bottleneck).
+- Windows uses ICMP Echo packets for tracing by default; Linux's
+  traceroute uses UDP packets by default (both can be changed with flags).
+- In a VM, early hops may repeat the same local gateway before reaching
+  the wider internet (as seen in the example above).
+
+Quick comparison
+-------------------------------------------------------------------------
+Purpose                          | Windows         | Linux
+-------------------------------------------------------------------------
+View network interface config    | ipconfig        | ifconfig (or ip a)
+Test host reachability/latency   | ping            | ping
+View active connections          | netstat         | netstat (or ss)
+Trace path to a destination      | tracert         | traceroute
+-------------------------------------------------------------------------
+Memory trick: ipconfig/ifconfig = "who am I", ping = "are you there",
+netstat = "who am I talking to", tracert/traceroute = "how do I get there".
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is ipconfig (Windows) / ifconfig (Linux) used for?
+-> To view a system's network interface configuration - IP address, subnet mask, and (on Windows) default gateway.
+
+2. What is the Windows equivalent of Linux's ifconfig?
+-> ipconfig (or "ipconfig /all" for full detail including MAC and DNS info).
+
+3. What does the "Subnet Mask" / "netmask" field show?
+-> It defines which part of the IP address identifies the network and which part identifies the host.
+
+4. What is ping and what protocol does it use?
+-> A utility to test host reachability; it uses ICMP (Internet Control Message Protocol) Echo Request/Reply packets.
+
+5. What does TTL mean in ping output?
+-> Time To Live - the maximum number of hops a packet can pass through before being discarded; it decreases by 1 at each router.
+
+6. How does Windows ping differ from Linux ping by default?
+-> Windows sends a fixed 4 packets and stops automatically; Linux pings continuously until manually stopped (Ctrl+C).
+
+7. What is netstat used for?
+-> To display active network connections, listening ports, and connection states on a system.
+
+8. What does the connection state ESTABLISHED mean?
+-> That a TCP connection is currently active and data can be exchanged.
+
+9. What does TIME_WAIT mean?
+-> The connection has been closed but the system is waiting to ensure all packets are fully handled before releasing resources.
+
+10. What extra information does "netstat -ano" give on Windows?
+-> The Process ID (PID) responsible for each connection, so you can identify which program is using it.
+
+11. What is tracert/traceroute used for?
+-> To map the path (hop by hop) that packets take to reach a destination, and measure the latency at each hop.
+
+12. What is a "hop" in tracert/traceroute?
+-> One intermediate router/device that a packet passes through on its way to the destination.
+
+13. What type of packets does tracert use by default on Windows vs traceroute on Linux?
+-> Windows tracert uses ICMP Echo packets by default; Linux traceroute uses UDP packets by default.
+
+14. What are the modern replacement commands for ifconfig and netstat on Linux?
+-> "ip addr" (or "ip a") replaces ifconfig; "ss" replaces netstat. (Windows still uses ipconfig and netstat as standard.)

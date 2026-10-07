@@ -1,0 +1,330 @@
+Practical no: 14
+
+Aim: Recovering and Inspecting deleted files.
+
+- Check for Deleted Files
+- Recover the Deleted Files
+- Analyzing and Inspecting the recovered files
+- Perform this using recovery option in ENCASE and also perform manually
+  through command line
+
+NOTE:
+- The screenshots in the provided practical use Autopsy 4.21.1 for the
+  recovery and analysis workflow. No separate EnCase or command-line
+  recovery commands are shown in the provided screenshots, so no command
+  has been invented here.
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Open Autopsy.
+        - Open Autopsy.
+        - The welcome screen provides options such as:
+          New Case
+          Open Recent Case
+          Open Case
+
+Step 2: Create a new case.
+        - Click New Case.
+        - Enter the case information.
+        - The screenshot shows:
+          Case Name: Alexa
+        - Select the case directory/location.
+        - Click Next.
+
+Step 3: Enter optional case information.
+        - Enter the available examiner/case details.
+        - The screenshot shows:
+          Case Number: 1
+          Examiner Name: khani
+        - Click Finish.
+
+Step 4: Wait for the case resources to open.
+        - Autopsy may show a progress window while opening the case
+          resources and keyword search index.
+
+Step 5: Add a data source.
+        - Click Add Data Source.
+
+Step 6: Select the data source type.
+        - Select:
+          Local Disk
+        - Other options visible in the practical include:
+          Disk Image or VM File
+          Logical Files
+          Unallocated Space Image File
+          Autopsy Logical Imager Results
+          XRY Text Export
+        - Click Next.
+
+Step 7: Select the local disk.
+        - Click Select Disk.
+        - The screenshot shows:
+          11th com 16 (E:)   394.4 GB
+          Drive 0             931.5 GB
+        - Select the required disk.
+        - Click OK.
+
+Step 8: Configure the data source.
+        - Check the selected local disk and timezone.
+        - The screenshot shows:
+          Local Disk: 11th com 16 (E:)
+          Timezone: (GMT+5:30) Asia/Calcutta
+        - Keep the required options as shown.
+        - Click Next.
+
+Step 9: Configure ingest modules.
+        - Select the required ingest modules.
+        - The screenshot shows modules such as:
+          Recent Activity
+          Hash Lookup
+          File Type Identification
+          Extension Mismatch Detector
+          Embedded File Extractor
+          Picture Analyzer
+          Keyword Search
+          Email Parser
+          Encryption Detection
+          Interesting Files Identifier
+          Central Repository
+          PhotoRec Carver
+          Virtual Machine Extractor
+        - Click Next.
+
+Step 10: Add the data source.
+         - Autopsy processes the data source and adds it to the case.
+         - Wait for the processing to complete.
+
+Step 11: Handle ingest warnings if they appear.
+         - The practical screenshot shows an Ingest Module Startup Failure.
+         - It reports:
+           Keyword Search: The index could not be opened or does not exist.
+           Cyber Triage Malware Scanner: No Cyber Triage license code loaded.
+         - Click OK and continue with the available analysis.
+
+Step 12: Open the analyzed data.
+         - Browse the data source in the left panel.
+         - Select the relevant file/category.
+         - Review the files displayed in the main window.
+
+Step 13: Recover/export a selected file.
+         - Right-click the required file.
+         - Select:
+           Extract Selected Item to CSV
+           as shown in the practical screenshot.
+         - Choose the destination location.
+
+Step 14: Save the extracted file.
+         - Enter the output filename/location.
+         - The screenshot shows a file beginning with:
+           adminchat.txt_697.cfa
+         - Click Save.
+         - OUTPUT:
+           The practical shows a message:
+           File(s) extracted.
+
+Step 15: Verify the recovered/extracted file.
+         - Open the destination folder.
+         - Check that the extracted file is present.
+
+Step 16: Generate a report.
+         - In Autopsy, click:
+           Tools -> Generate Report
+         - The practical screenshot shows report options including:
+           HTML Report
+           Excel Report
+           File - Text
+           Data Summary Report
+           Save Tagged Items
+           Keyword Hits
+           Google Earth KML
+           CAR-CSV
+           Timeline CSV
+
+Step 17: Select the report type.
+         - Select the required report format.
+         - Click Next.
+
+Step 18: Select the data to include.
+         - Select the data sources/categories to include in the report.
+         - The screenshot provides options to:
+           Check All
+           Uncheck All
+         - Click Next.
+
+Step 19: Configure the report.
+         - Select the required report data.
+         - The screenshot shows:
+           All Results
+           All Tagged Results
+           Specific Tagged Results
+         - Click Finish.
+
+Step 20: Wait for report generation.
+         - Autopsy displays the report generation progress.
+         - When it is complete, close the progress window.
+
+Step 21: Open the generated report.
+         - Open the generated report folder.
+         - The screenshot shows an Excel report file.
+         - Open the Excel file and check the case summary.
+
+Step 22: Take screenshots of:
+         - Autopsy welcome screen
+         - Case information
+         - Data source selection
+         - Selected local disk
+         - Ingest modules
+         - Ingest warning, if displayed
+         - Recovered/extracted file
+         - Generate Report options
+         - Generated report
+         - Final report summary
+
+
+======================== NOTES (THEORY) ======================
+
+Deleted File Recovery
+- Deleted file recovery is the process of finding and recovering files
+  that have been deleted from a storage device.
+
+Autopsy
+- Autopsy is a digital forensics platform used to analyze digital
+  evidence.
+- It can add data sources, run ingest modules, search evidence, recover
+  files and generate reports.
+
+Case
+- A case is a workspace where forensic evidence and analysis results
+  are organized.
+- The practical shows the case name as Alexa.
+
+Data Source
+- A data source is the disk, image or other evidence added to Autopsy
+  for examination.
+- The practical uses a Local Disk.
+
+Local Disk
+- A local disk is a physical storage device connected to the system.
+- The practical screenshot shows a selected E: drive.
+
+Ingest Modules
+- Ingest modules process the added evidence and extract useful
+  forensic information.
+- Examples shown include Recent Activity, Hash Lookup, File Type
+  Identification, Picture Analyzer and PhotoRec Carver.
+
+PhotoRec Carver
+- It is an ingest module shown in the practical for file recovery/
+  carving from the data source.
+
+File Extraction
+- File extraction saves a selected item from the analyzed evidence to
+  another location for examination.
+
+Generate Report
+- Autopsy can generate reports containing the results of the forensic
+  analysis.
+- The practical shows HTML, Excel and text-related report options.
+
+Excel Report
+- The practical generates an Excel report.
+- The final screenshot shows case summary information including:
+  Case Name: Alexa
+  Case Number: 1
+  Number of data sources in case: 1
+  Case Notes: Hello
+  Examiner: khani
+
+Ingest Warning
+- The practical shows warnings for Keyword Search and Cyber Triage.
+- The warning states that the Keyword Search index could not be opened
+  or does not exist and that no Cyber Triage license code was loaded.
+
+Memory trick:
+Case = create workspace
+Data Source = add evidence
+Ingest = analyze evidence
+Extract = recover/save file
+Report = final forensic result
+
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is deleted file recovery?
+-> It is the process of finding and recovering files that have been
+   deleted from a storage device.
+
+2. What is Autopsy?
+-> Autopsy is a digital forensics platform used to analyze digital
+   evidence.
+
+3. What is the aim of this practical?
+-> To check for deleted files, recover them and analyze the recovered
+   files.
+
+4. What is a case in Autopsy?
+-> It is a workspace used to organize forensic evidence and analysis.
+
+5. What case name is shown in the practical?
+-> Alexa.
+
+6. What case number is shown?
+-> 1.
+
+7. What examiner name is shown?
+-> khani.
+
+8. What is a data source?
+-> It is the disk, image or other evidence added to Autopsy for analysis.
+
+9. Which data source type is selected in the practical?
+-> Local Disk.
+
+10. What is the purpose of ingest modules?
+-> They process evidence and extract useful forensic information.
+
+11. Name some ingest modules shown in the practical.
+-> Recent Activity, Hash Lookup, File Type Identification, Extension
+    Mismatch Detector, Embedded File Extractor, Picture Analyzer,
+    Keyword Search, Email Parser, Encryption Detection, PhotoRec Carver
+    and Virtual Machine Extractor.
+
+12. What is PhotoRec Carver?
+-> It is an ingest module shown in the practical for file recovery/
+    carving.
+
+13. What happens during data source processing?
+-> Autopsy processes the selected evidence and adds the results to the
+    case.
+
+14. What ingest warning is shown in the practical?
+-> Keyword Search index could not be opened or does not exist, and
+    Cyber Triage has no license code loaded.
+
+15. How is a selected file extracted in the practical?
+-> Right-click the selected item and choose the extraction option shown
+   in the practical.
+
+16. What message is shown after extraction?
+-> File(s) extracted.
+
+17. What is the purpose of Generate Report?
+-> To create a report containing the forensic analysis results.
+
+18. What report formats are shown?
+-> HTML Report, Excel Report, File - Text and other report formats.
+
+19. What report format is generated at the end of the practical?
+-> Excel report.
+
+20. What information is shown in the final Excel report?
+-> Case Name, Case Number, number of data sources, case notes and
+    examiner information.
+
+21. What is file extraction?
+-> It is the process of saving a selected item from analyzed evidence
+    to another location.
+
+22. Why is forensic recovery useful?
+-> It can help investigators locate and examine files that are no
+    longer normally visible in the file system.

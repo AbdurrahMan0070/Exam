@@ -1,0 +1,166 @@
+Practical 1: Google and WHOIS Reconnaissance
+Aim: Gather information about a target/organization using Google search techniques (Google Dorking) and WHOIS lookups.
+
+Tools needed: Web browser (Chrome/Edge/Firefox), internet connection, a screenshot tool (Snipping Tool / Win+Shift+S)
+Targets used here: infosys.com, rbi.org.in, netflix.com, amazon.com, samsung.com
+(Use only public information. Never try to log in or misuse anything you find.)
+
+======================== STEPS TO PERFORM ========================
+
+Step 1: Open a browser and go to https://www.google.com
+
+Step 2: Use the site: operator (search inside one website only).
+        Type in the search bar:
+            site:infosys.com
+            site:rbi.org.in
+        OUTPUT: Results show pages only from that website.
+        --> Take a screenshot (Site).
+
+Step 3: Use the filetype: operator (find specific file types).
+        Type:
+            site:rbi.org.in filetype:pdf
+        OUTPUT: Only PDF files from rbi.org.in are listed.
+        --> Take a screenshot (Filetype).
+
+Step 4: Use the intitle: operator (keyword in the page title).
+        Type:
+            intitle:"Login"
+        OUTPUT: Pages that have the word "Login" in their title.
+        --> Take a screenshot (Intitle).
+
+Step 5: Use the inurl: operator (keyword in the URL).
+        Type:
+            site:netflix.com inurl:admin
+        OUTPUT: Netflix pages that have "admin" in the URL.
+        --> Take a screenshot (Inurl).
+
+Step 6: Use the cache: operator (view the saved copy of a page).
+        Type:
+            cache:amazon.com
+        OUTPUT: The cached (stored) version of the page.
+        NOTE: Google has removed the cache feature, so this may show
+        nothing. If so, state that in your journal and use the Wayback
+        Machine (https://web.archive.org) to view an old saved copy of
+        amazon.com instead.
+        --> Take a screenshot (Cache).
+
+Step 7: Use the related: operator (find similar websites).
+        Type:
+            related:samsung.com
+        OUTPUT: Websites similar to samsung.com (e.g., other electronics brands).
+        NOTE: This operator may no longer work in Google. If so, write
+        that in your journal and use a similar-sites tool (e.g., SimilarWeb)
+        to get the same kind of result.
+        --> Take a screenshot (Related).
+
+Step 8: Perform a WHOIS lookup.
+        Method A (website): Open https://lookup.icann.org (or https://who.is),
+        type a domain such as  infosys.com  and click Lookup/Search.
+        Method B (command line): Open Command Prompt / Terminal and type
+            whois infosys.com
+        (On Windows, the whois command needs to be installed first.)
+        OUTPUT: Domain registration details such as:
+            - Domain name
+            - Registrar (company through which it was registered)
+            - Creation date, updated date, expiry date
+            - Name servers
+            - Registrant organization / country (often hidden for privacy)
+        --> Take a screenshot (WHOIS).
+
+Step 9: Paste all screenshots in your practical document under the
+        headings: Site, Filetype, Intitle, Inurl, Cache, Related, WHOIS.
+        Write one line of observation under each screenshot.
+
+======================== NOTES (THEORY) ======================
+
+Web Crawler (Spider / Bot)
+- A program that automatically visits web pages, downloads and indexes their content.
+- Search engines use crawlers to find pages and show them in search results.
+- It is called "crawling" because it moves from link to link across the web.
+
+Reconnaissance
+- Collecting information about a target BEFORE an attack or security test.
+- Helps find entry points, weaknesses, IP addresses, domains, technologies used.
+- It is the first phase of ethical hacking.
+
+OSINT (Open Source Intelligence)
+- Collecting information from public sources: websites, social media, news, public records.
+- No direct contact with the target's systems.
+
+Google Reconnaissance (Google Dorking / Google Hacking)
+- Using advanced search operators in the normal Google search bar.
+- Finds information that is public but hard to find (exposed files, login pages).
+
+WHOIS Lookup
+- A public database search that shows who registered a domain and when.
+- Shows registrar, creation/expiry dates and name servers.
+- Contact details are often hidden by privacy protection.
+
+Domain Registration
+- Reserving a unique domain name (like example.com) with a registrar for a fixed period.
+- Must be renewed to keep using it.
+
+Google Search Operators (Quick Table)
+-------------------------------------------------------------------------
+Operator    | Purpose                              | Example
+-------------------------------------------------------------------------
+site:       | Search inside one website only       | site:infosys.com
+filetype:   | Find specific file types (pdf, doc)  | site:rbi.org.in filetype:pdf
+intitle:    | Keyword must be in the page title    | intitle:"Login"
+inurl:      | Keyword must be in the URL           | site:netflix.com inurl:admin
+cache:      | View the saved copy of a page        | cache:amazon.com
+related:    | Find similar websites                | related:samsung.com
+-------------------------------------------------------------------------
+Memory trick: SITE = where, FILETYPE = what file, INTITLE = title,
+INURL = link, CACHE = old copy, RELATED = similar sites.
+
+Active vs Passive Reconnaissance
+-------------------------------------------------------------------------
+Basis        | Passive                       | Active
+-------------------------------------------------------------------------
+Interaction  | No direct contact with target | Direct contact with target
+Detection    | Very hard to detect           | Easily detected
+Sources      | Google, WHOIS, social media   | Servers, networks, ports
+Risk         | Low and safe                  | Higher risk
+Examples     | Google dorking, OSINT, WHOIS  | Port scan, ping sweep
+-------------------------------------------------------------------------
+Memory trick: Passive = "just looking", Active = "knocking on the door".
+(Google dorking and WHOIS are PASSIVE reconnaissance.)
+
+======================== IMPORTANT VIVA QUESTIONS ======================
+
+1. What is reconnaissance in cybersecurity?
+-> Collecting information about a target system, network or organization before an attack or security test.
+
+2. What is the purpose of reconnaissance in ethical hacking?
+-> To find possible entry points and weaknesses, and gather details like IP addresses, domain names, technologies used and employee information.
+
+3. What is OSINT?
+-> Open Source Intelligence: collecting information from public sources (websites, social media, news, public records) without touching the target's systems.
+
+4. What is Google Dorking?
+-> Using advanced Google search operators to find public information that is not easily visible, such as exposed files or login pages.
+
+5. What is a WHOIS lookup?
+-> A search that gives public registration details of a domain: owner, registrar, creation and expiry dates.
+
+6. What information can be obtained from WHOIS?
+-> Owner name/organization, registrar, registration and expiry dates, name servers, and sometimes contact email (often privacy-protected).
+
+7. What is domain registration?
+-> Reserving a unique domain name with an accredited registrar for a set period, with the right to use it as long as it is renewed.
+
+8. Differentiate between active and passive reconnaissance.
+-> Passive: no direct contact, hard to detect, low risk (Google, WHOIS). Active: direct contact, easily detected, higher risk (port scanning, ping sweep).
+
+9. What is a web crawler?
+-> A bot that automatically visits and indexes web pages so search engines can show them in results.
+
+10. What does the site: operator do?
+-> Limits the search to one website or domain.
+
+11. What does filetype: do?
+-> Finds specific file formats such as PDF, PPT, DOC, XLS.
+
+12. What do intitle: and inurl: do?
+-> intitle: finds pages with the keyword in the title; inurl: finds pages with the keyword in the URL.

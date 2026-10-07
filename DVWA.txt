@@ -1,0 +1,281 @@
+Use this when DVWA suddenly stops connecting to MySQL/MariaDB.
+
+--------------------------------------------------
+1. CHECK XAMPP
+--------------------------------------------------
+
+Open XAMPP Control Panel.
+
+Make sure:
+- Apache = Running
+- MySQL = Running
+
+--------------------------------------------------
+2. TEST MYSQL/MARIADB
+--------------------------------------------------
+
+Open CMD:
+
+C:\xampp\mysql\bin\mysql.exe -u root
+
+If you see:
+Welcome to the MariaDB monitor...
+
+then MySQL/MariaDB is running and accepting root connections.
+
+--------------------------------------------------
+3. CHECK DVWA DATABASE
+--------------------------------------------------
+
+Inside MariaDB:
+
+SHOW DATABASES;
+
+If "dvwa" exists:
+
+USE dvwa;
+
+Then:
+
+SHOW TABLES;
+
+Typical DVWA tables include:
+- access_log
+- guestbook
+- security_log
+- users
+
+--------------------------------------------------
+4. CHECK DVWA CONFIG
+--------------------------------------------------
+
+File:
+
+C:\xampp\htdocs\DVWA\config\config.inc.php
+
+Typical settings:
+
+$_DVWA[ 'db_server' ]   = '127.0.0.1';
+$_DVWA[ 'db_database' ] = 'dvwa';
+$_DVWA[ 'db_user' ]     = 'dvwa';
+$_DVWA[ 'db_password' ] = 'p@ssw0rd';
+$_DVWA[ 'db_port' ]     = '3306';
+
+--------------------------------------------------
+5. TEST THE DVWA MYSQL USER
+--------------------------------------------------
+
+Exit MariaDB first:
+
+exit;
+
+Then CMD:
+
+C:\xampp\mysql\bin\mysql.exe -u dvwa -p
+
+Enter:
+
+p@ssw0rd
+
+If you get:
+
+ERROR 1045 (28000): Access denied for user 'dvwa'@'localhost'
+
+then the DVWA database user/password or privileges need fixing.
+
+--------------------------------------------------
+6. FIX THE DVWA MYSQL USER
+--------------------------------------------------
+
+Login as root:
+
+C:\xampp\mysql\bin\mysql.exe -u root
+
+Then run:
+
+CREATE USER IF NOT EXISTS 'dvwa'@'localhost' IDENTIFIED BY 'p@ssw0rd';
+
+GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
+
+FLUSH PRIVILEGES;
+
+Check:
+
+SHOW GRANTS FOR 'dvwa'@'localhost';
+
+Then:
+
+exit;
+
+Test again:
+
+C:\xampp\mysql\bin\mysql.exe -u dvwa -p
+
+Password:
+
+p@ssw0rd
+
+--------------------------------------------------
+7. IF "CREATE / RESET DATABASE" SAYS ACCESS DENIED
+--------------------------------------------------
+
+Example error:
+
+Could not drop existing database
+SQL: Access denied for user 'dvwa'@'localhost' to database 'dvwa'
+
+This means the DVWA user does not have enough privileges to drop/recreate
+the database.
+
+For a local DVWA lab, login as root:
+
+C:\xampp\mysql\bin\mysql.exe -u root
+
+Then run:
+
+GRANT ALL PRIVILEGES ON *.* TO 'dvwa'@'localhost';
+
+FLUSH PRIVILEGES;
+
+Check:
+
+SHOW GRANTS FOR 'dvwa'@'localhost';
+
+Then:
+
+exit;
+
+Go back to DVWA and click:
+
+Create / Reset Database
+
+NOTE:
+GRANT ALL PRIVILEGES ON *.* is broad access and should only be used
+for a local lab setup like DVWA, not a real production application.
+
+--------------------------------------------------
+8. ORIGINAL mysqli_error() ERROR
+--------------------------------------------------
+
+If you see something like:
+
+Fatal error: Uncaught TypeError:
+mysqli_error(): Argument #1 ($mysql) must be of type mysqli, bool given
+
+This generally means:
+
+DVWA tried to connect to MySQL/MariaDB
+        |
+        V
+The connection failed and returned false
+        |
+        V
+DVWA then called mysqli_error() using false
+        |
+        V
+PHP produced the TypeError
+
+DO NOT immediately edit dvwaPage.inc.php.
+
+First:
+1. Make sure MySQL is running.
+2. Test root connection.
+3. Check the DVWA config.
+4. Test the dvwa user directly.
+5. Fix the dvwa user's password/privileges if needed.
+
+--------------------------------------------------
+9. USEFUL COMMANDS TO MEMORIZE
+--------------------------------------------------
+
+Login as root:
+
+C:\xampp\mysql\bin\mysql.exe -u root
+
+Login as DVWA user:
+
+C:\xampp\mysql\bin\mysql.exe -u dvwa -p
+
+Show databases:
+
+SHOW DATABASES;
+
+Select DVWA database:
+
+USE dvwa;
+
+Show DVWA tables:
+
+SHOW TABLES;
+
+Check DVWA user's permissions:
+
+SHOW GRANTS FOR 'dvwa'@'localhost';
+
+Exit MariaDB:
+
+exit;
+
+--------------------------------------------------
+10. QUICK EXAM SEQUENCE
+--------------------------------------------------
+
+If DVWA suddenly gives database errors:
+
+A) XAMPP:
+   Start Apache + MySQL.
+
+B) CMD:
+   C:\xampp\mysql\bin\mysql.exe -u root
+
+C) Check:
+   SHOW DATABASES;
+
+D) Check DVWA:
+   USE dvwa;
+   SHOW TABLES;
+
+E) Fix user if needed:
+   CREATE USER IF NOT EXISTS 'dvwa'@'localhost' IDENTIFIED BY 'p@ssw0rd';
+   GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
+   FLUSH PRIVILEGES;
+
+F) If Create / Reset Database needs to drop/recreate the database:
+   GRANT ALL PRIVILEGES ON *.* TO 'dvwa'@'localhost';
+   FLUSH PRIVILEGES;
+
+G) Test:
+   C:\xampp\mysql\bin\mysql.exe -u dvwa -p
+
+H) Open:
+   http://localhost/DVWA
+
+--------------------------------------------------
+11. EXAM EXPLANATIONS
+--------------------------------------------------
+
+Why did the mysqli_error() TypeError happen?
+
+DVWA's database connection failed. The connection function returned
+false instead of a valid mysqli connection, and the code later passed
+that false value to mysqli_error().
+
+Why did "Create / Reset Database" fail?
+
+The DVWA MySQL user did not have sufficient privileges to drop/recreate
+the DVWA database.
+
+Why does testing "root" not prove the DVWA login works?
+
+Because root and dvwa are different MySQL users. Root can connect while
+the dvwa user's password or privileges are incorrect.
+
+--------------------------------------------------
+IMPORTANT
+--------------------------------------------------
+
+Do not randomly edit DVWA PHP files when you get a database error.
+
+First check:
+XAMPP -> MySQL -> root connection -> DVWA database -> DVWA user ->
+permissions -> Create/Reset Database.
